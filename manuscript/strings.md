@@ -77,7 +77,7 @@ words
 
 The `sort` JavaScript array method sorts its contents in place. This means the order of the elements change inside the array.
 
-## The length of a string
+### The length of a string
 
 Strings have a `length` property that is equal to the number of characters in the string. The shortest possible string is the *empty string* having a length of `0`:
 

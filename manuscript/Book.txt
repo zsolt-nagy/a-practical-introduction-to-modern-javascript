@@ -2,3 +2,5 @@ introduction.md
 
 part_javascript_fundamentals.md
 comments.md
+
+plans.md

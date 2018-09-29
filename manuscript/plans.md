@@ -1,8 +1,6 @@
 
 # Part II: JavaScript Types in Depth
 
-## Using Strings in JavaScript
-
 ## Using Arrays in JavaScript
 
 ## Using Objects in JavaScript

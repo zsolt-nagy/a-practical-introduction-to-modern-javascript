@@ -75,6 +75,8 @@ words
 > ["á", "ES6", "in", "Practice"]
 ```
 
+This sort method of arrays expects a helper function such as `sorter`. This helper function expects two arguments, `a` and `b`. The helper function should be written in such a way that it should return a positive value whenever `a > b`, a negative value whenever `a < b`, and zero if `a` and `b` are equal.
+
 The `sort` JavaScript array method sorts its contents in place. This means the order of the elements change inside the array.
 
 ### The length of a string
@@ -143,6 +145,29 @@ parametrizedHtmlTemplate
 
 The in-depth description of template literals is in my book [ES6 in Practice](https://leanpub.com/es6-in-practice), and you can also read the theory [in this article on template literals](http://www.zsoltnagy.eu/strings-and-template-literals-in-es6/).
 
+### Trimming strings
+
+Trimming is a process of removing whitespace characters before the first non-whitespace character, and after the last non-whitespace character of the string. We often remove these unwanted whitespace characters when processing templates or processing user input. For instance, assuming that `_` denotes a space, instead of entering `_Zsolt` in a form field, you would expect that `Zsolt` is saved in the database.
+
+The `trim` string method performs trimming:
+
+```
+const template = `
+<div>First line</div>
+<div>Second line</div>
+`;
+
+template
+> "
+  <div>First line</div>
+  <div>Second line</div>
+  "
+
+template.trim()
+> "<div>First line</div>
+  <div>Second line</div>"
+```
+
 ### Accessing characters inside a string
 
 The bracket notation, also used with arrays, can provide access to an arbitrary character in a string:
@@ -150,6 +175,13 @@ The bracket notation, also used with arrays, can provide access to an arbitrary 
 ```
 let digits = '0123456789';
 digits[4]
+> "4"
+```
+
+Instead of indexing, you can also use the `charAt` method:
+
+```
+digits.charAt(4)
 > "4"
 ```
 
@@ -377,6 +409,46 @@ hexadecimalDigits.slice( -6, 13 )
 You could learn the `substr` and `substring` methods that perform slicing using a different syntax. However, you will end up using `slice` most of the time anyway, therefore, in this summary, we will omit these two methods. Substr works like slice, but it allows the first argument to be greater than the second one, and still return the substring between the indices. The `substring` method specifies the index of the first character and the length of the substring.
 
 The reason why I advise only using `slice` is that you will use the same method with arrays too. Its parametrization is intuitive, and you can also understand  Python array slicing better.
+
+### Replacing characters of a string
+
+The `replace` string method returns a new string, where the first substring specified by its first argument is replaced with its second argument:
+
+```
+const numbers = '1 2 3 4';
+
+numbers.replace( ' ', ',' );
+> "1,2 3 4"
+```
+
+Notice that only the first space was replaced. If you want to replace all spaces inside a string, you can use the `split` and `join` methods:
+
+```
+numbers.split( ' ' ).join( ',' )
+> "1,2,3,4"
+```
+
+Alternatively, you can also specify a regular expression as the first argument of the `replace` method, and apply a global flag on it to replace all matches. 
+
+```
+numbers.replace( / /g, ',' )
+> "1,2,3,4"
+```
+
+This solution is a bit advanced. Head over to my article [Regular Expressions in JavaScript](http://www.zsoltnagy.eu/regular-expressions-in-javascript/) if you want to learn more.
+
+You can replace any number of characters including zero. In case of replacing the empty string, the second argument is inserted before the first character:
+
+```
+'help'.replace( '', '--' )
+> "--help"
+
+'help'.replace( new RegExp( '', 'g' ), '--' )
+> "--h--e--l--p--"
+
+'1 2 3 4'.replace( '2 3', 'five' )
+> "1 five 4"
+```
 
 ### Upper and lower case letters
 

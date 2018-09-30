@@ -1,7 +1,10 @@
 introduction.md
 
 part_javascript_fundamentals.md
+hello_world.md
 comments.md
+
+
 strings.md
 
 plans.md

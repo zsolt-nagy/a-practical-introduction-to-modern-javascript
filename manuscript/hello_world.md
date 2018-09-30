@@ -6,15 +6,19 @@ In software development, we often brag about executing a `"Hello World!"` progra
 console.log( "Hello World!" );
 ```
 
-You may ask, where can I execute this line? 
+The semicolon marks the end of the statement. Semicolons are optional in JavaScript, because they are inserted automatically by the JavaScript interpreter. However, it is good practice to stick to inserting semicolons, because there are some edge cases, when the JavaScript interpreter inserts semicolons to the wrong place.
 
-If you are lazy, you can simply execute it below. Try it out:
+You may ask, where can I execute this line? Let me give you a few options.
 
-<div class="klipse">
-/*---Type here:--->*/
-</div>
+1. Open [CodePen](https://codepen.io/pen/?editors=0012). CodePen is an online web development sandbox containing boxes for HTML, CSS, and JavaScript code. You need to write your code in the JavaScript box. You can see the result in the console. Whenever you make a change to the JavaScript code, a new line appears in the console.
+2. You can also write your code at the bottom of the CodePen console. You can see the same result after pressing enter.
+3. Alternatively, you can open a new tab in your browser. Most browsers are the same in this aspect. This item uses the terminology of Google Chrome in English. After opening a Chrome tab, right click inside the tab and select Inspect from the context menu. Alternatively, you can press `Ctrl + Shift + I` in Windows or Linux, and `Cmd + Shift + I` in Mac. Once the Chrome developer tools pops up, you can see a menu bar at the top of the developer tools. This menu bar starts with Elements, Console, Network, and so on. Select Console. You can now see a similar console as the CodePen console. The `>` sign is the prompt. You can enter your JavaScript code after the `>`.
 
-If you typed the message `console.log( "Hello World!" )`, you can see the following evaluation:
+A> A sandbox is a development environment isolated from its surroundings, where you can experiment with your code without having to deal with tedious setup, dependency import, or other tasks.
+
+If your code spans multiple lines and you are in a console, pressing `Enter` normally executes the line. If you want to add a newline character without executing the code, press `Shift + Enter`.
+
+If you typed the message `console.log( "Hello World!" );`, you can see the following evaluation:
 
 ```
 "Hello World!"
@@ -31,7 +35,7 @@ Notice your statement can span multiple lines. Press enter inside the expression
 console
    .log(
         "Hello world!"
-)
+);
 ```
 
 As you can see, you can format JavaScript code in any way you want. The interpreter will not care about the redundant whitespace characters.
@@ -39,22 +43,20 @@ As you can see, you can format JavaScript code in any way you want. The interpre
 Experiment a bit more with the log. Instead of "Hello World!", write 5 + 2. You should see the following:
 
 ```
-> console.log( 5 + 2 )
+> console.log( 5 + 2 );
 7
 undefined
 ```
 
 `>` symbolizes the input of the console. 
 
-As it is inconvenient to load my blog each time you want to write JavaScript, I will recommend a service you can use to execute JavaScript code: [CodePen](https://codepen.io/pen/?editors=0012). In the above link, I prepared everything you need: a JavaScript editor and a console.
-
-In the editor, type
+An alternative online development sandbox is [JsFiddle](jsfiddle.net). Try it out by entering the following code in the JavaScript box of the editor:
 
 ```
-console.log( "Hello World!" );
+document.body.innerText = 'Hello World!';
 ```
 
-Watch it appear in the console.
+After entering this code, the text `Hello World!` appears in the Output. The task of this sandbox is to assemble an HTML page, and this command told the sandbox what to display in the document body.
 
 Congratulations! You managed to write `Hello World!` to the console twice. Let's see what we learned:
 

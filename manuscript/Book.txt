@@ -3,8 +3,16 @@ introduction.md
 part_javascript_fundamentals.md
 hello_world.md
 comments.md
-
+datatypes.md
+let.md
+object_basics.md
+array_basics.md
+function_basics.md
+typeof.md
+operators.md
+control_structures.md
 
 strings.md
 
 plans.md
+higher_order_functions.md

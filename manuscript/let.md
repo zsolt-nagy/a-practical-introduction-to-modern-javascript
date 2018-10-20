@@ -32,7 +32,7 @@ y = x ** 2;
 let z;
 
 console.log( x, y, z );
-``
+```
 
 As the above editor is editable, try out one thing. 
 

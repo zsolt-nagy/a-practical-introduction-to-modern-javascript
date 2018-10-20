@@ -37,8 +37,6 @@
 
 ## Principles of Functional Programming
 
-## Higher Order Function
-
 ## Map-Reduce-Filter
 
 ## Currying and Partial Evaluation

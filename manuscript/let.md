@@ -1,3 +1,5 @@
+## The let keyword
+
 First of all, in the below example, you have to know that `console.log` may print any number of arguments separated by commas. In the console, the values appear next to each other separated by a space.
 
 We can create variables with the `let` keyword. Think of a variable like a drawer. Let *declares* a variable, which means to you that a drawer is created with a handle.

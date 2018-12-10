@@ -13,6 +13,10 @@
 
 ## Closures
 
+## Cloning in JavaScript
+
+## JavaScript Promises
+
 # Part III: Introduction to Web Development
 
 ## Accessing the DOM

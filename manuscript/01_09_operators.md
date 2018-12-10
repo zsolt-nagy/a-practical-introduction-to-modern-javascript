@@ -82,3 +82,94 @@ When formulating a condition that checks if a value is `NaN`, we have the proble
 > Number.isNaN( NaN )
 true
 ```
+
+## The Spread Operator and Rest Parameters
+
+The Spread operator and Rest parameters are two related features. Let's introduce them with an example.
+
+**Example 1**: Suppose that you have two baskets containing fruits:
+
+```
+const Basket1 = [ 'Apple', 'Pear', 'Strawberry' ];
+const Basket2 = [ 'Banana', 'Peach' ];
+```
+
+Create a new array that contains all fruits that are in `Basket1` or `Basket2`.
+
+**Solution**: First we have to create a new array.
+
+```
+const MergedBasket = [];
+```
+
+Then, we have to place the contents of `Basket1` and `Basket2` in the new array:
+
+```
+for ( let fruit of Basket1 ) {
+    MergedBasket.push( fruit );
+}
+for ( let fruit of Basket2 ) {
+    MergedBasket.push( fruit );
+}
+```
+
+We can check that the result is correct:
+
+```
+> console.log( MergedBasket )
+(5) ["Apple", "Pear", "Strawberry", "Banana", "Peach"]
+```
+
+It is not too comfortable to write this much just for a simple merge.
+
+Let's introduce the spread operator that helps you solve the same problem faster. 
+
+A> The spread operator *spreads* the arguments of an array as comma separated values. 
+
+For values `v1`, `v2`, `v3`, the spread operator works as follows: `...[v1, v2, v3]` becomes `v1, v2, v3`.
+
+At first glance, you may have some uncertainties surrounding this construct, and I fully understand why. After all, writing `...[1,2,3]` in the console gives you a syntax error:
+
+```
+> ...[1, 2, 3]
+Uncaught SyntaxError: Unexpected number
+```
+
+This means, you cannot write comma separated values everywhere in your code. Let's see some basic use cases, where comma separated values can occur:
+
+- array elements: `[1, 2, 3]`,
+- function or method invocations: `Math.max(1, 2)`
+
+Regarding array elements, let's see what happens if we place the `...[1, 2, 3]` expression in an array:
+
+```
+> [...[1, 2, 3]]
+[1, 2, 3]
+```
+
+We got back a flat array with the same elements. If we examine these lines a bit more deeply, you can see that this operation came with some side-effects:
+
+```
+const numbers = [1, 2, 3];
+const spreadNumbers = [...numbers];
+
+spreadNumbers[0] = 5;
+
+console.log( spreadNumbers );  // Printed value: [5, 2, 3] 
+```
+
+What is the value of `numbers[0]`? 
+
+```
+> numbers 
+(3) [1, 2, 3]
+```
+
+As you can see, `numbers[0]` is `1`, because `spreadNumbers` is not the same array as `numbers`. After the elements of `numbers` were copied to `spreadNumbers`, their elements were the same. However, The two arrays were different. We managed to make a **shallow copy** of the original array using the Spread operator. 
+
+Making a shallow copy is a type of cloning. Cloning is a complex operation in computer science, and it is outside the scope of this introductory topic. In a later chapter, we will revisit this construct. 
+
+A> The Spread operator can be used to make a **shallow copy** of an array. In `B = [...A]`, `B` is the shallow copy of `A`.
+
+
+

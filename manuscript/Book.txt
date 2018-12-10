@@ -1,19 +1,20 @@
 introduction.md
 
 part_javascript_fundamentals.md
-hello_world.md
-comments.md
-datatypes.md
-let.md
-object_basics.md
-array_basics.md
-function_basics.md
-typeof.md
-operators.md
-control_structures.md
-html_css.md
+01_01_hello_world.md
+01_02_comments.md
+01_03_datatypes.md
+01_04_let.md
+01_05_object_basics.md
+01_06_array_basics.md
+01_07_function_basics.md
+01_08_typeof.md
+01_09_operators.md
+01_10_control_structures.md
+01_11_html_css.md
 
-strings.md
+part_javascript_types_in_depth.md
+02_01_strings.md
 
 plans.md
 higher_order_functions.md

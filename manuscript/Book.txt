@@ -15,6 +15,7 @@ part_javascript_fundamentals.md
 
 part_javascript_types_in_depth.md
 02_01_strings.md
+02_02_arrays.md
 
 plans.md
 higher_order_functions.md

@@ -270,8 +270,6 @@ const third = 1, fifth = 2;
 [,,third,,fifth] = [1, 2, 3, 4, 5]
 ```
 
-**Question 3**: What happens 
-
 **Question 3**: What happens if I place constants on the left of a destructuring assignment?
 
 **Answer 3**: A JavaScript error is thrown. A destructuring *assignment* cannot be used for filtering. JavaScript is not Prolog, where the left hand side and the right hand side are unified. In destructuring, all we do is destructure the right hand side so that the values on the left hand side are assigned a value.
@@ -373,7 +371,7 @@ let [ firstArgument, ...args ] = [ 1, 2, 3 ]
 
 Notice that calling a function is a *destructuring* assignment. The left hand side of the destructuring assignment is the argument list of the function definition. The right hand side is consists of the argument list the function is called with. On the left hand side of a destructuring assignment, the `...` operator is used to describe a *rest parameter*. 
 
-**Example 2**: Write a function that accepts a variable number of arguments. Each argument should be a number. The return value of the function is the difference of the largest and smallest argument value. 
+**Example**: Write a function that accepts a variable number of arguments. Each argument should be a number. The return value of the function is the difference of the largest and smallest argument value. 
 
 **Solution**: We will use rest parameters to describe this function.
 

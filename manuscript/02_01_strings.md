@@ -144,8 +144,14 @@ Once created, template literals are immediately evaluated and converted to strin
 
 ```
 > parametrizedHtmlTemplate
-"↵    <div>↵        This is a node template↵    </div>↵"
+"
+    <div>
+        This is a node template
+</div>
+"
 ```
+
+Note that in the developer tools console, instead of the newlines, you may see the symbol written on your ENTER key to denote the actual line breaks.
 
 The in-depth description of template literals is in my book [ES6 in Practice](https://leanpub.com/es6-in-practice), and you can also read the theory [in this article on template literals](http://www.zsoltnagy.eu/strings-and-template-literals-in-es6/).
 
@@ -262,16 +268,16 @@ Assuming you want to enumerate the indices of all matches, you can specify a sec
 > sequence.indexOf( ',' )
 1
 
-> sequence.indexOf( ',', 1 + 1 )
+> sequence.indexOf( ',', 2 )
 3
 
-> sequence.indexOf( ',', 3 + 1 )
+> sequence.indexOf( ',', 4 )
 5
 
-> sequence.indexOf( ',', 5 + 1 )
+> sequence.indexOf( ',', 6 )
 5
 
-> sequence.indexOf( ',', 7 + 1 )
+> sequence.indexOf( ',', 8 )
 -1
 ```
 

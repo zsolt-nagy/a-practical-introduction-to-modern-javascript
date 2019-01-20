@@ -1,4 +1,4 @@
-# Using Arrays in JavaScript
+## Using Arrays in JavaScript
 
 You have learned the basics of JavaScript arrays in the introductory section. We will now work on extending your knowledge by learning more features of arrays. These features are described as array methods. We will group these array features by use case:
 

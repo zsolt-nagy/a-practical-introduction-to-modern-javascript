@@ -1,4 +1,4 @@
-# Using Objects in JavaScript
+## Using Objects in JavaScript
 
 We learned in the introductory chapter that objects are collections of data and operations that are related. Objects help you group any number of values using one reference.
 
@@ -97,7 +97,7 @@ We will now cover more advanced Object concepts:
 
 In this section, we will not deal with the prototype chain, setting the prototype of an object, or getting the prototype of an object. 
 
-## Enumerating object property names and values
+### Enumerating object property names and values
 
 We can retrieve an array of object keys, values, and entries, using the `Object.keys`, `Object.values`, `Object.entries` methods respectively. `>` indicates the prompt of the console.
 
@@ -127,7 +127,7 @@ owner
 amount
 ```
 
-## The global object
+### The global object
 
 We have not covered inheritance yet. However, it is worth noting that it is possible to enumerate properties of objects that do not come from the object itself.
 
@@ -171,7 +171,7 @@ Many of these properties are *not enumerable*, this is why they do not make it t
 
 At this stage, do not worry about the prototype chain of JavaScript objects. All you need to know is that it exists, and each object you create inherits properties from the global object. Later, we will learn how to set the prototype of objects.
 
-## Own properties and inherited properties
+### Own properties and inherited properties
 
 We learned that some properties of the global object are not enumerable.
 
@@ -283,7 +283,7 @@ Object.getOwnPropertyNames( Object.prototype )
 
 It is also possible to access the configuration settings of an object using `Object.getOwnPropertyDescriptors`. This leads us to the next section.
 
-## Object property settings
+### Object property settings
 
 All object properties have settings:
 
@@ -442,7 +442,7 @@ Uncaught TypeError: Cannot assign to read only property 'nonWritable' of object 
 
 It is generally useful to use strict mode, because you tend to get more errors that can be corrected before your application is deployed on production.
 
-## Freezing and sealing objects
+### Freezing and sealing objects
 
 Based on my experience as a tech interviewer, some developers think that the `const` keyword can create objects with a content that cannot be modified. This statement is false. The `const` keyword only ensures that the variable references an object, and this reference cannot be changed. The contents of the object can be modified at any time.
 
@@ -578,7 +578,7 @@ Summary: sealed objects have properties that
 New properties cannot be added to a sealed objects.
 
 
-## Getters and setters
+### Getters and setters
 
 `Object.defineProperty` can also be used to define getters and setters for a property. Let's define an area property such that it returns the square of the `sideLength` property value. When setting the area, the `sideLength` is automatically calculated as the square root of the area.
 
@@ -641,7 +641,7 @@ Let's investigate what happened here:
 - when setting `rectangle.area` to `2`, the line `this.a = this.b = value ** 0.5;` computes the values of the sides, setting them to an approximate value of the square root of 2.
 - when querying the new value of `rectangle.area`, we get the computed value of `1.4142135623730951 * 1.4142135623730951`, as the side values are both `1.4142135623730951`.
 
-## Property Shorthand Notation
+### Property Shorthand Notation
 
 Let's declare a `logArea` method in our `shape` object:
 
@@ -661,7 +661,7 @@ Notice that in ES5, we would have to write `: function` between `logArea` and `(
 
 Concise methods have not made it to the specification just to shave off 10 to 11 characters from the code. Concise methods also make it possible to access prototypes more easily. This leads us to the next section.
 
-## Computed Object Keys
+### Computed Object Keys
 
 In JavaScript, objects are associative arrays (hashmaps) with String keys. We will refine this statement later with ES6 Symbols, but so far, our knowledge is limited to string keys. 
 
@@ -707,7 +707,7 @@ Conclusions:
 - the `toString` value of an object is `[object Object]` regardless of its contents
 - when creating or accessing a property of an object, the respective `toString` values are compared
 
-## Equality
+### Equality
 
 We will start with a nitpicky subject: comparisons. Most developers prefer `===` to `==`, as the first one considers the type of its operands.
 
@@ -718,7 +718,7 @@ In ES6, `Object.is( a, b )` provides *same value equality*, which is almost the 
 
 I will continue using `===` for now, and pay attention to `NaN` values, as they should normally be caught and handled prior to a comparison using the more semantic `isNaN` built-in function. For more details on `Object.is`, visit [this thorough article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
 
-## Mixins and Shallow Copies with Object.assign
+### Mixins and Shallow Copies with Object.assign
 
 Heated debates of composition over inheritance made mixins appear as the winner construction for composing objects. Therefore, libraries such as UnderscoreJs and LoDash created support for this construct with their methods `_.extend` or `_.mixin`. 
 
@@ -798,7 +798,7 @@ console.log( racer.toString() );
 Had we omitted the `{}` from the assembly of the `racer` object, seemingly, nothing would have changed, as `racer.toString()` would still have been `"Frank on QuickBucks"`. However, notice that `horse` would have been `===` equivalent to `racer`, meaning, that the side-effect of executing `Object.assign` would have been the mutation of the `horse` object.
 
 
-## Destructuring objects
+### Destructuring objects
 
 In the scope where an object is created, it is possible to use other variables for initialization.
 
@@ -820,7 +820,7 @@ console.log( y, typeof y );
 // 4 "number"
 ```
 
-## Spreading objects
+### Spreading objects
 
 The spread operator and rest parameters have been a popular addition in ES2015. You could spread arrays to comma separated values, and you could also add a rest parameter at the end of function argument lists to deal with a variable number of arguments.
 
@@ -891,7 +891,7 @@ let clonedBook = Object.assign( {}, book );
 let extendedBook = Object.assign( {pages: 250}, clonedBook );
 ```
 
-## Symbol keys
+### Symbol keys
 
 In ES6, the `Symbol` type was introduced. Each symbol is unique. Even if two symbols are associated with the same label, they are different:
 

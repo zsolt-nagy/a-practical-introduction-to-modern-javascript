@@ -12,15 +12,31 @@ To gain some leverage on learning JavaScript, it is important to see why it is w
 
 ## JavaScript on the Client
 
+Chances are that you accessed this book via a web browser such as Google Chrome or Firefox. Websites that are displayed in the browser are primarily written in three languages: HTML, CSS, and JavaScript. 
+
+HTML (Hyper Text Markup Language) describes the structure and content of a website. CSS (Cascading Style Sheets) works with presentation: it determines which font, colors, background images etc. are used to display the website.
+
+JavaScript is a full-fledged programming language that can not only animate and modify elements on screen, but it can perform many other tasks, such as:
+
+- communication with a server, providing and storing data,
+- description of application logic: for instance, the application logic can validate the personal data you entered,
+- visualization: for instance, JavaScript can draw a chart displaying the stock price of Google.
+
+> *Animation* in computer science is the act of moving or transforming an object on screen. During the move, the features of the object may change, which means that the animated object may be drawn in different color, different size, or in case of three dimensional animation, we might see the object from a different angle. 
+
+Transforming an object means that a feature of the object changes in time. We can change many features of the object, such as its color, its shape, or its orientation.
+
 JavaScript has been clearly the language to go to when it comes to client side development. Let's stop for a moment. What is client side and what is server side?
 
 > *Client-side* development focuses on writing code that runs in the browser of the end user. *Server-side* development focuses on writing code that runs on the server of the service provider. 
 
+When a client retrieves the stock price of Google from a server, a server-side program queries data on the Google stock from a database. Then these data are transmitted to the client using a specified format. The client can then read the data and display a graph on the historical stock prices.
+
 Back in the 90s and early 2000s, JavaScript was a little toy language that could *animate* elements on a static website. These animations were called *dynamic behavior*.
 
-> *Animation* in computer science is the act of moving an object on screen. During the move, the features of the object may change, which means that the animated object may be drawn in different color, different size, or in case of three dimensional animation, we might see the object from a different angle. 
+> Displaying an object on screen at a given point in time is called *rendering*. 
 
-> Displaying an object on screen at a given point in time is called *rendering*. Animation can also be defined by continuously rendering an object on screen, while its features, including its position, may change.
+Animation can also be defined by continuously rendering an object on screen, while its features may change.
 
 Twenty years ago, JavaScript was not taken seriously in the software development industry. Many "developers" had no idea what they were doing, and they just copy-pasted code snippets to add some dynamic behavior to their site. Often times, these snippets clashed with each other, because they used the same variables.
 

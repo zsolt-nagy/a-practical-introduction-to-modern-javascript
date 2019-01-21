@@ -66,68 +66,82 @@ The answer to the maintainability issue was the emergence of JavaScript framewor
 
 In the early 2010s, literally everyone wanted to write a framework. A new framework got created literally every week. Creating a framework means that you reinvent the wheel, because you solve a well known problem in your own way. If you want to build a portfolio, don't even think about building a framework, because it does not make sense.
 
-Fortunately, we are past the time when the *churn rate* of JavaScript development was so high that you had to learn a new framework or library every month. Today, it is quite clear that you use React or AngularJs or VueJs, and React seems to be winning the battle. There is a big community behind the main frameworks, because React is backed by Facebook, and Angular is backed by Google.
+Fortunately, we are past the time when the *churn rate* of JavaScript development was so high that you had to learn a new framework or library every month. Today, it is quite clear that you use React or Angular or Vue. Based on Google search data, React seems to be winning the overall battle, but Angular and Vue also have their niche. There is a big open source community behind the main frameworks, because React is backed by Facebook, and Angular is backed by Google.
 
-The frameworks were also great, but developers had one more problem. The frameworks and libraries were so much beyond the capabilities of JavaScript that JavaScript became a burden. The language was already quite old, and we needed an update. This update was ES2015, or using its old name, ES6. Many innovations made it to ES6 from different sources such as jQuery, some frameworks, some functional programming libraries like UnderscoreJs, and some languages like TypeScript.
+> *Open source communities* are formed around the idea that anyone can contribute to the source code maintained by the community. The strength behind popular open source communities is that major errors are reported and fixed fast, and the progress of development is continuous. As a result, we can trust open source communities in ensuring a certain quality standard.
+
+The frameworks were also great, but developers had one more problem. The frameworks and libraries were so much beyond the capabilities of JavaScript that learning the ins and outs of JavaScript appeared to have become unnecessary. The language was already quite old, and we needed an update. This update was ES2015, or using its old name, ES6. Many innovations made it to ES6 from different sources such as jQuery, some frameworks, some functional programming libraries like UnderscoreJs, and some languages like TypeScript.
+
+> ES stands for ECMAScript. *ECMA International* (ECMA = European Computer Manufacturers Association) is a standardizing organization founded in 1961. ECMA International is responsible for the standard describing languages like JavaScript and ActionScript. The standard describing the latest JavaScript language is ECMA-262.
+
+Around the time when ES6 emerged, old browsers like Internet Explorer 8 became so unpopular that there was hardly any demand to provide compatibility with them. This resulted in more compact and more uniform JavaScript code. 
 
 Since ES2015, there was no turning back. Every year, some updates made it to JavaScript, and these updates also ended up in my course, [ES6 in Practice](http://www.zsoltnagy.eu/es6-in-practice).
 
-We can conclude based on the history of JavaScript that there has never been a better time to be a JavaScript developer. In many companies, you can make more money than a C++ developer or a PHP developer. The challenges you deal with on a daily basis are interesting, and more importantly, you often get immediate feedback on your efforts by seeing the effects of your changes in your browser.
+We can conclude based on the history of JavaScript that there has never been a better time to be a JavaScript developer. In many companies, you can make more money than a C++ developer or a PHP developer. Just look at stackoverflow.com jobs or payscale.com data. The challenges you deal with on a daily basis are interesting, and more importantly, you often get immediate feedback on your efforts by seeing the effects of your changes in your browser thanks to the *live reload* feature automatically reloading your updates. 
 
 A> Summary:
 A>
 A> - JavaScript was first a toy language for creating dynamic behavior
-A> - AJAX made it possible to update websites without reloading the page
-A> - jQuery lowered the entry barriers to programming
+A> - AJAX made it possible to update websites without reloading the page of the application
+A> - jQuery lowered the entry barriers to programming the web
 A> - Frameworks and libraries forced us to use well known design patterns in software engineering
+A> - Old browsers such as IE8 lost popularity, and the new browsers helped JavaScript developers by implementing the JavaScript standard more closely
 A> - ES2015 and beyond: many patterns became standard part of the language
 
 ## JavaScript on the server
 
 If these benefits were not enough for you, let's add some more sauce to the mix.
 
-JavaScript is not just a client-side language anymore. Node.js makes it possible to run JavaScript on the server. Node.js is built on the foundations of the execution engine of Google Chrome, called V8. The V8 engine is fast like a Formula One car. The V8 compiler turns JavaScript to machine code, which means that on the server, we are not dealing with *interpreted* code anymore.
+JavaScript is not just a client-side language anymore. Node.js makes it possible to run JavaScript on the server. Node.js is built on the foundations of the execution engine of Google Chrome, called V8. Recall that even Michael Schumacher won his first world championship using a V8 engine. The V8 engine is fast like a Formula One car. The V8 compiler turns JavaScript to machine code, which means that on the server, we are not dealing with *interpreted* code anymore.
 
-> Interpreted code runs on a *virtual machine*, translating the sets of instructions written by a developer to executable commands. Interpreted languages are typically safer, but slower than *compiled* languages. Interpreted languages are also *portable*, which means that you can take the source code of a program and execute it on any system that has a virtual machine for that specific code. Languages that compile to *machine code* have the benefit of running code as close to machine code level as possible. This translates to faster execution times. Unfortunately, this machine code cannot be *ported* to different machines running different operating systems or having different hardware architecture. 
+> *Interpreted code* runs on a *virtual machine*, translating the sets of instructions written by a developer to executable commands. Interpreted languages are typically slower than *compiled* languages. Interpreted languages are also *portable*, which means that you can take the source code of a program and execute it on any system that has a virtual machine for that specific code. Languages that compile to *machine code* have the benefit of running code as close to machine code level as possible. This translates to faster execution times. Unfortunately, this machine code cannot be *ported* to different machines running different operating systems or having different hardware architecture. 
 
 Node.js solved the speed problem by offering a compiler to machine code. This is not a big deal yet, because most other server-side languages can do the same thing. Why is node.js still a good choice for certain server-side tasks?
 
 The reason lies in some node.js architectural decisions. Node.js comes with an *event loop* that can execute and serve parallel requests on the server without blocking. This is called *non-blocking I/O*. Opposed to many other languages, when you have to read or write a database or a file, node.js is not blocked until the I/O operation is finished. This means that node.js stays busy handling other tasks, possibly important for other clients.
 
+> *Architecture* is the product of an *architect*, describing the principles of how a system works. *Software architecture* describes the structure of how a system works.
+
+> *I/O operations* are Input/Output operations. Input stands for inputting data into a system. Examples: typing, moving a mouse, taking a photo or a screenshot, downloading data, or requesting our bank statement. Output operations are described as data sent by the system. Examples: display or print text, upload files to a server, or respond to a bank statement query in a specified format.
+
 Think about it for a moment. When is this feature beneficial?
 
 > Node.js shines when there are a lot of independent parallel requests requiring a lot of I/O operations, but not many server-side computations.
 
-For instance, 3D renderer algorithm comes with a lot of CPU operations. Even though the V8 engine produces fast machine code, there are some other languages that are faster. As those languages have a *blocking* nature when it comes to I/O operations, node.js gets the edge over them once we deal with many inexpensive operations that interact with a database.
+For instance, a 3D renderer algorithm comes with a lot of operations. Even though the V8 engine produces fast machine code, there are some other languages that are faster. Node.js only gets the edge over these languages once we deal with many inexpensive operations. 
 
-In today's world, this use case happens to be very popular. The computers of the end users are strong enough to run a lot of logic on client side. The application server providing an API mostly interfaces database servers and asset servers, and formats data in a way that clients can fetch and understand them using AJAX requests. The role of the server is limited to purposes that do not require a lot of CPU operations. This is an optimal environment of node.js.
+In today's world, this use case happens to be very popular. The computers of the end users are strong enough to run a lot of logic on client side, including presentation of data by rendering charts, tables, and other components. The application server provides data through APIs (Application Programming Interface), and mostly interfaces database servers and file servers. The application server receives API requests and formats data for API responses in a way that clients can fetch and understand them using AJAX requests. 
 
-This is because a lot of problems have been solved effectively by *microservices*. You can simply query a microservice to perform a CPU-heavy operation, often on another server, using a different technology. If you are interested in microservices, [check out my introduction on this topic](http://www.zsoltnagy.eu/an-introduction-to-microservices/).
+> *API (Application Programming Interface)*: describes the way how an application can be used, including a communication protocol. The description is made from the perspective of an external user. The API of a *service* running on an *application server* is described as a set of *endpoints*. Endpoints can be called using *requests*. A *request* typically contains a web address (URL - Uniform Resource Locator) and *payload* data. The *response* of an API contains information presented in a specified format such as JSON (JavaScript Object Notation) or XML (eXtensible Markup Language). The API response and the API request payload typically share the same format, and the primary format for JavaScript APIs is JSON. The user of a server API is typically a client-side JavaScript application or code running on another server.
 
-As a conclusion, once you learn client side development, you can upgrade your skills to perform server side development as well. Developers who are good at both client side and server side development are called *full stack developers*. Full stack development is a great career path upgrade for you in case you are looking for more responsibility in a smaller company.
+The role of the server is limited to purposes that do not require a lot of computing power per request. In other words, most API requests are not CPU intensive. These constraints provide an optimal environment of node.js.
+
+A lot of problems have been solved effectively by *microservices*. You can simply query a microservice to perform a CPU-heavy operation, often on another server, using a different technology. If you are interested in microservices, [check out my introduction on this topic](http://www.zsoltnagy.eu/an-introduction-to-microservices/).
+
+As a conclusion, once you learn client side development, you can upgrade your skills to perform server side development as well. Developers who are good at both client side and server side development are called *full stack developers*. Full stack development is a great career path upgrade for you in case you are looking for more responsibility in a smaller company. These companies typically provide fast career progress in exchange for you taking more responsibility to help out the company.
 
 A> Summary: 
 A> 
-A> - JavaScript is compiled to fast machine code on the server, using the V8 engine of Google
-A> - Node.js comes with non-blocking I/O, making it possible to handle many I/O operations in parallel
+A> - JavaScript is compiled to fast machine code, using the V8 engine of Google. This code can run on the server.
+A> - Node.js comes with non-blocking I/O, making it possible to handle many I/O operations in parallel.
+A> - In today's world, many computation heavy tasks are either performed on client side or by using a specialized microservice. Therefore, node.js is an excellent choice for implementing less resource-intensive APIs that require servicing a lot of parallel requests.
 
-## Other Exotic JavaScript Use Cases
+## Other JavaScript Use Cases
 
-JavaScript development is fun.
-
-The primary use case of JavaScript has been client side development for web-browsers. Then came node.js with the ability to write server-side code. JavaScript has a lot more to give in 2018 though. Let's see some of the more exotic options:
+JavaScript development is fun. Originally, the primary use case of JavaScript was client side development for web-browsers. Then came node.js with the ability to write server-side code. JavaScript has a lot more to give in 2019 though. Let's see some of the more exotic options:
 
 - **JavaScript and VR.** [React 360](https://facebook.github.io/react-360/) makes it possible to deliver VR experiences using JavaScript. [Some other libraries](https://github.com/ku-fpg/vr-ideas/wiki/JavaScript-VR-libraries) help you with VR as well.
-- **JavaScript can compile to other languages, and other languages can be compiled to JavaScript.** *WebAssembly* makes it possible to compile many languages to JavaScript so that you can run code in the browser. 
-- **Machine Learning in JavaScript.** [TensorFlow](https://js.tensorflow.org/), Google's machine learning library containing neural network implementations, is also available in JavaScript. Many other libraries for machine learning and artificial intelligence are also available.
+- **JavaScript can compile to other languages, and other languages can be compiled to JavaScript.** *WebAssembly* makes it possible to compile many languages to JavaScript so that you can run code in the browser. We can even use code written in these languages in our JavaScript code.
+- **Machine Learning, AI in JavaScript.** [TensorFlow](https://js.tensorflow.org/), Google's machine learning library containing neural network implementations, is also available in JavaScript. Many other libraries for machine learning and artificial intelligence are also available.
 - **Mobile development.** [React Native](https://facebook.github.io/react-native/) provides a way to perform mobile development using JavaScript. Native mobile apps and JavaScript are an amazing combination, because of the facilitation of code reusability.
-- **Blockchain Programming.** At the time of writing this article, there are more than a thousand blockchain-related libraries on npm ([proof](https://www.npmjs.com/search?q=keywords:blockchain)). [Crypto-js](https://www.npmjs.com/package/crypto-js) provides us with easy-to-use encryption and decryption algorithms. Everything is set to implement blockchains in JavaScript.
+- **Blockchain Programming.** At the time of writing this section, there are more than a thousand blockchain-related libraries on npm ([proof](https://www.npmjs.com/search?q=keywords:blockchain)). [Crypto-js](https://www.npmjs.com/package/crypto-js) provides us with easy-to-use encryption and decryption algorithms. Everything is set to implement blockchains in JavaScript.
 - **Real Time Communication on the Web**: video and audio streams can be controlled using JavaScript. The [WebRTC](https://webrtc.org/) open source project makes it possible to create applications with real time communication.
 - **Microservices**. [Seneca](http://senecajs.org/) is one example for organizing microservices in your application.
 
 If you are an intermediate to advanced JavaScript developer, and you are interested in the latter two use cases, check out my video course on Packt Publishing: [Beginning Modern JavaScript Development with Microservices, WebRTC, and React](https://www.packtpub.com/web-development/beginning-modern-javascript-development-microservices-webrtc-and-react-elearning-video).
 
-JavaScript may or may not be optimal for certain tasks. Obviously, if a task is computation intensive, such as character animation and shading in three dimensions, JavaScript may not be the optimal language to write applications that perform these operations. However, JavaScript execution environments are continuously improving, and new use cases emerge on the horizon, where using JavaScript is an alternative. Remember, if a use case becomes feasible in JavaScript, chances are, a big passionate community will soon be formed around it.
+JavaScript may or may not be optimal for certain tasks. Obviously, if a task is computation intensive, such as character animation and shading in three dimensions, JavaScript may not be the optimal language to write applications that perform these operations. However, JavaScript execution environments are continuously improving, and new use cases emerge on the horizon, where using JavaScript is an alternative. Remember, if a use case becomes feasible in JavaScript, chances are, a big passionate community will soon be formed around it. Chances for corporate support are high as well.
 
 ## JavaScript Domination on the Job Market
 

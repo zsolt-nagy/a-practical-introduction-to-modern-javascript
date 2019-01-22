@@ -203,15 +203,15 @@ Let's see these points one by one.
 
 **The goals of the activity must be clear**
 
-Regarding the goals, just look at the two developer surveys and figure out whether it makes sense to become a software developer in 2018. You can literally work from the beach as a freelancer, or as an employee, being part of an international team. Writing JavaScript code often feels like playing with LEGO. You also happen to make good money with it. Many people are productive as junior developers within half a year. If you can't write code right now, what better experience could you imagine for yourself than utilising your skills as a frontend or full stack developer?
+Regarding the goals, just look at the two developer surveys and figure out whether it makes sense for you to become a JavaScript developer in 2019. You can literally work from the beach as a freelancer, or as an employee, being part of an international team. Writing JavaScript code often feels like playing with LEGO. You also happen to make good money with it. Many people are productive as junior developers within half a year. If you can't write code right now, what better experience could you imagine for yourself than utilising your skills as a frontend or full stack developer?
 
 **The task is neither too easy, nor too hard**
 
 Learning JavaScript is not an obvious thing to do. There are some riddles, some pitfalls, some hurdles you need to go through. Don't let this discourage you though! Just think about it. Who would you be if you never faced a challenge? There would be nothing you are proud of in your life right now. These hurdles serve your benefit. These hurdles also make your learning experience hard enough so that you can experience flow learning JavaScript.
 
-My opinion is that learning JavaScript is not too hard to experience flow. Obviously, this opinion is debatable, because if you worked as a bus driver for instance, and you have never seen a programming language before, you will need some fundamentals. I admit, my learning resource, [ES6 in Practice](http://www.zsoltnagy.eu/es6-in-practice) is not an optimal resource for absolute beginners, because it assumes you know at least the basics of how programming languages work, what if statements and loops are, what functions are etc. I am planning an entry level product for JavaScript, and I know, advanced JavaScript may be too hard for some people. 
+My opinion is that learning JavaScript is not too hard to experience flow. Obviously, this opinion is debatable, because if you worked as a bus driver for instance, and you have never seen a programming language before, you will need some fundamentals. I admit, my learning resource, [ES6 in Practice](http://www.zsoltnagy.eu/es6-in-practice) is not an optimal resource for absolute beginners, because it assumes you know at least the basics of how programming languages work, what if statements and loops are, what functions are etc. I am planning an entry level product for JavaScript, and I know, advanced JavaScript may be too hard for some people. I wrote this book based on the feedback of my clients who struggled with ES6 in Practice.
 
-However, once you lay down the foundations, you will be ready for these resources, and nothing will stop you. Therefore, with proper guidance, you will improve, you will get better, without getting frustrated about your learning experience.
+However, once you lay down the foundations, you will be ready for more advanced resources, and nothing will stop you. Therefore, with proper guidance, you will improve, you will get better, without getting frustrated about your experience of learning JavaScript.
 
 
 
@@ -219,16 +219,16 @@ However, once you lay down the foundations, you will be ready for these resource
 
 This is where JavaScript shines. As long as you use JavaScript on client side, and you don't complicate your tooling too much, you will get immediate feedback on your actions. Sometimes you just have to refresh your browser. In some cases, you don't even need a browser refresh. Whatever you do, you will immediately see the results of your code.
 
-For this reason, JavaScript is a great candidate for flow experience.
+For this reason, JavaScript is a great candidate for flow experience. Python is the only language I am aware of that may be comparable to JavaScript in terms of reaching flow fast.
 
 ## Summary
 
 Regardless of whether you want to learn JavaScript, or you want to choose or change your specialization, it is important to take a moment and appreciate the current state of JavaScript.
 
-Things were not always as bright as in these days. In the first half of the article, we went through the dark history of JavaScript on client side, then we transitioned to the somewhat brighter and shorter history of JavaScript on the server. 
+Things were not always as bright as in these days. In the first half of the chapter, we went through the dark history of JavaScript on client side, then we transitioned to the somewhat brighter and shorter history of JavaScript on the server. 
 
 These events made it possible for JavaScript developers to experience growth way beyond what we imagined ten years ago. An avalanche of use cases await JavaScript developers, such as VR and Blockchain technologies, helping JavaScript conquer new horizons.
 
 As JavaScript continuously gained popularity, software developers who specialize in technologies that include JavaScript have a bright present and future. Two developer surveys concluded that you cannot really go wrong with betting on JavaScript.
 
-If you would like to learn JavaScript, the last part of this article concluded that JavaScript is close to optimal in terms of supporting you reach an optimal learning experience. Given that you often experience an immediate feedback to your actions, as long as you stick to reasonable challenges, you can expect to spend more development and learning time in flow than in case of many other languages.
+If you would like to learn JavaScript, the last part of this chapter concluded that JavaScript is close to optimal in terms of supporting you reach an optimal learning experience. Given that you often experience an immediate feedback to your actions, as long as you stick to reasonable challenges, you can expect to spend more development and learning time in flow than in case of many other languages.

@@ -24,7 +24,7 @@ true
 false
 ```
 
-Regarding the new value, a simple comparison does the trick:
+Regarding the `null` value, a simple comparison does the trick:
 
 ```
 let name = null;

@@ -99,7 +99,7 @@ The plus operator concatenates strings. Concatenation means that you write the c
 
 Strings are *immutable* which means that their value cannot be changed. When concatenating two strings, the result is saved in a third string. 
 
-If any of the operands of plus is an integer, the result becomes a string. JavaScript automatically converts the operands of an operator to the same type. This is called *automatic type casting*:
+If any of the operands of plus is an integer, while the other operand is a string, then the result becomes a string. JavaScript automatically converts the operands of an operator to the same type. This is called *automatic type casting*:
 
 ```
 > 1 + '2'
@@ -143,7 +143,7 @@ NaN
 10
 ```
 
-Arbitrary strings are often `NaN`. "2" in base 2 is 10. You can see how easy it is to convert a binary or a hexadecimal (base 16) string into a decimal number. Base 16 digits are `0123456789abcdef`. The last 6 digits may also be upper case.
+Arbitrary strings are often `NaN`. "10" in base 2 is 2. You can see how easy it is to convert a binary or a hexadecimal (base 16) string into a decimal number. Base 16 digits are `0123456789abcdef`. The last 6 digits may also be upper case.
 
 `Number.parseInt` recognizes the starting characters of a string as integer numbers, and throws away the rest:
 
@@ -200,6 +200,8 @@ false
 
 We can compare two numbers with `>`, `>=`, `==`, `===`, `<=`, `<`. We will discuss the difference between `==` and `===` soon. For the rest of the operators, the result of the comparison is a boolean.
 
+The `=` symbol is not used for comparison. It is used for assigning a value to a variable (see later). 
+
 The `!` operator negates its operand. True becomes false, and false becomes true. 
 
 > A **truthy** value is a value `v` for which `!!v` is `true`. Example truthy values are: nonzero integers, strings containing at least one character. 
@@ -237,7 +239,7 @@ false
 false
 ```
 
-The negation of `==` is `!=`. Read it as *is not equal to*. 
+The negation of `==` is `!=`. Read it as *is not equal to*. For instance, `!(a == b)` becomes `a != b`. It is time mentioning that you are free to use parentheses to group your values and override the default priority of the operators.
 
 The negation of `===` is `!==`.
 
@@ -249,7 +251,24 @@ false
 true
 ```
 
-Let me introduce the ternary operator to drive home a strong point about truthiness.
+So far, all operators have been unary or binary meaning that they *bind* one or two values:
+
+- the expression `5 + 2` has the operands `5` and `2`
+- the expression `+'2'` has the operand `'2'`
+
+Operators bind their operands. Some operators are said to bind stronger than others. For instance, multiplication binds stronger than addition:
+
+```
+5 * 2 + 2 ----> 10 + 2 ----> 12
+```
+
+It is possible to override the precedence of the operators with parentheses:
+
+```
+5 * (2 + 2) ----> 5 * 4 ----> 20
+```
+
+There is one ternary operator in JavaScript.
 
 The value of `a ? b : c` is:
 
@@ -278,9 +297,9 @@ Null, undefined, and Symbols are primitive types.
 
 Null represents an *intentional* absence of a primitive or composite value of a *defined* variable.
 
-Undefined represents that a value is *not defined*.
+Undefined represents that a value is *not defined*. We will deal with the difference between `null` and `undefined` later.
 
-A `Symbol()` is a unique value without an associated literal value. They are useful as unique keys, because `Symbol() == Symbol()` is false. At this stage, just accept that symbols exist. You don't have to use them for anything yet. 
+A `Symbol()` is a unique value without an associated literal value. They are useful as unique keys, because `Symbol() == Symbol()` is false. Imagine a symbol as a unique key that opens one specific lock, in a world, where each created key is different from all other keys previously created. At this stage, just accept that symbols exist. You don't have to use them for anything yet. 
 
 ```
 > null
@@ -294,4 +313,13 @@ undefined
 
 > Symbol('ES6 in Practice')
 [object Symbol] {}
+```
+
+The value undefined can also be created using the `void` prefix operator. 
+
+Symbols can have a string description. This string description does not have an influence on the value of the symbol:
+
+```
+> Symbol('a') == Symbol('a')
+false
 ```

@@ -1,6 +1,6 @@
 ## Functions
 
-Think of a function like a mathematical function giving you a relationship between input and output variables. If you don't like maths, think of a function like a vending machine. You give it some coins and a number, and it spits out some cold coke. 
+Think of a function like a mathematical function giving you a relationship between input and output variables. If you don't like maths, think of a function like a vending machine. You give it some coins and a number, and it gives you a bottle of cold beverage. 
 
 ```
 function add( a, b ) {
@@ -66,6 +66,8 @@ When a function does not return anything, its return value becomes `undefined`:
 > empty()
 undefined
 ```
+
+The JavaScript interpreter always inserts a `return undefined;` statement at the end of each function. This is the default return value of every function. This default value can be overridden by the developer by specifying a return statement.
 
 Variables inside the function are not the same as variables outside the function:
 

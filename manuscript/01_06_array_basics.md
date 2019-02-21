@@ -14,7 +14,7 @@ Arrays do not have to contain elements of the same type:
 let storage = [ 1, 'Monday', null ];
 ```
 
-Each element of the array can be accessed using an index starting from zero:
+Each element of the array can be accessed using an *index* starting from zero:
 
 ```
 > days[0]

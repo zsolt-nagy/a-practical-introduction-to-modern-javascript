@@ -10,6 +10,8 @@ So far, we can write a sequence of instructions that perform a calculation. In s
 - selection: either execute one set of instructions, or another
 - iteration: execute a set of instructions a finite or infinite number of times
 
+### if statement
+
 As you already know how to sequence instructions one after the other, it is time to learn about selection and iteration. Let's start with selection:
 
 ```
@@ -96,6 +98,158 @@ function logLampColor( state ) {
 
 The beauty of the above code is that you can read it as if it was plain English. If the state is 1, then log Red. Otherwise if the state is 2, then log Yellow. And so on.
 
+The generic form of an `if-else if-else` statement is as follows:
+
+```
+if ( condition1 ) {
+    statements1;
+} else if ( condition2 ) {
+    statements2;
+} else if ( condition3 ) {
+    statements3;
+} else {
+    statements4;
+}
+statement_after_if_else;
+```
+
+It is possible to have more than two `else if` branches. Also note that `statement_after_if_else;` is executed right after entering any of the branches in the `if-else if-else if-else` construct. 
+
+The else branch is never necessary. For instance, the following construct is perfectly valid:
+
+```
+if ( condition1 ) {
+    statement1;
+    statement2;
+} else if ( condition2 ) {
+    statement3;
+    statement4;
+}
+```
+
+When there is only one statement after an `if` statement, the use of braces is not mandatory:
+
+```
+if ( condition ) statement;
+```
+
+Generally, the usage of braces is highly recommended due to readability reasons.
+
+Some common beginners errors about if statements:
+
+**1. six lines instead of one for a simple assignment**
+
+```
+let value;
+if ( condition ) {
+    value = true;
+} else {
+    value = false;
+}
+```
+
+If `condition` is a boolean value, the above code can be substituted by just one assignment:
+
+```
+let value = condition;
+```
+
+If `condition` is not a boolean value, you can use `Boolean` or double negation to convert it to a boolean. Using `Boolean` is more descriptive, especially for beginners.
+
+Using `Boolean`:
+
+```
+let value = Boolean( condition );
+```
+
+Some developers who think of themselves as more advance, prefer double negation:
+
+```
+let value = !!condition;
+```
+
+**2. Unnecessary nesting of if statements**
+
+```
+if ( condition1 ) {
+    if ( condition2 ) {
+        statement;
+    }
+}
+```
+
+While the above code is syntactically correct, notice we can just join the two statements with the and operator:
+
+```
+if ( condition1 && condition2 ) {
+    statement;
+}
+```
+
+**3. Wrong formatting by avoiding braces**
+
+The below code is dangerously misleading:
+
+```
+if ( condition )
+    statement1;
+    statement2;
+```
+
+In reality, the above code is translated to this:
+
+```
+if ( condition ) {
+    statement1;
+}
+statement2;
+```
+
+This is why it is not a good idea to avoid braces in an if statement.
+
+**4. Erroneous negation**
+
+- `!(red && green)`: *not red and green*, a.k.a. *not (red and green)
+- `!red && !green`: *not red and not green*
+
+Some beginner developers tend not to notice the difference between the two forms. In reality, the difference is big:
+
+```
+red    green   !(red && green)  !red || !green
+false  false   true             true
+false  true    true             false
+true   false   true             false
+true   true    false            false
+```
+
+Compare the above expressions with their negations:
+
+```
+red    green   red && green   red || green
+false  false   false          false
+false  true    false          true
+true   false   false          true
+true   true    true           true
+```
+
+We can conclude that
+
+- `!(red && green)` is the negation of `red && green`
+- `!red || !green` is the negation of `red || green`
+
+In general, you can always refer to the *de Morgan* equalities for negation:
+
+- `not( A and B ) = not( A ) or not( B )`,
+- `not( A or B ) = not( A ) and not( B )`.
+
+Remember, when you move negation inside or outside in an expression, *and* changes to *or*, and *or* changes to *and*.
+
+For instance, if you say, the lamp state is "not (red and yellow)", the statement is equivalent to: "the lamp state is not red or not yellow". Most people, especially non-developers say "the lamp state is not red and not yellow", which is an incorrect translation of the original statement.
+
+This small, but significant difference can be a source of huge errors.
+
+### switch statement
+
 There is an abbreviated version for a long chain of if-else statement: the `switch` operator. Switch is like a telephone operator. It puts you through some code in case the correct value is stored in your variable. There is also a default line, saying "the number you have dialed is invalid".
 
 ```
@@ -176,7 +330,11 @@ function getLampColor( state ) {
 
 Some people don't like this way of writing code. You can hit up their rant about how awful this construct is under the name of *ternary operator abuse*. I personally do not share their opinion, but this does not matter. If you believe you should use it, use it.
 
-That's all for selection. Let's see iteration. In order to execute the same expressions multiple times, we create *loops*. A loop is like a cheap song. You know, Berlin is famous for the city of DJs. Sometimes I believe every third man claims he is a DJ. I happened to be a neighbor of one, fortunately, property management terminated his contract. This lunatic guy "worked" on one melody for half a year. And he repeated it over and over and over and over and over and over again. 
+That's all for selection. In the next subsection, let's see one way to perform iteration. 
+
+### while loop
+
+In order to execute the same expressions multiple times, we create *loops*. A loop is like a cheap song. You know, Berlin is famous for the city of DJs. Sometimes I believe every third man claims he is a DJ. I happened to be a neighbor of one, fortunately, property management terminated his contract. This lunatic guy "worked" on one melody for half a year. And he repeated it over and over and over and over and over and over again. 
 
 Think of a loop like the song "Around the world, around the wo-orld. Around the world, around the wo-orld...". You get the idea. Take a melody, repeat it a hundred times, and you get the song. In programming terms, take some code, repeat it `x` amount of times, and you get code executed a hundred times.
 

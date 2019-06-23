@@ -2,6 +2,12 @@
 
 Congratulations! You now know the basic types of JavaScript. This is a perfect time to introduce an operator that returns the type of a value.
 
+Let's recall the concept of an *operator* and an *operand*:
+
+A> We perform *operations* on data of given type. These operations are symbolized by an *operator* such as `+`, `-`, `*`, `/`. The data we perform operations on are called the *operands* of the operation.
+
+For instance, in the `2 * 3` operation, the multiplication sign (`*`) is the operator, and the operands are `2` and `3`.
+
 The `typeof` operator accepts one operand and returns a string. This string describes the type of an object.
 
 ```
@@ -40,4 +46,21 @@ function two() { return 2; }
 
 typeof two
 "function"
+```
+
+### Exercises - typeof operator
+
+**Exercise 39**: Without executing the code, determine the values of the following variables:
+
+```
+let a = typeof '';
+let b = typeof a;
+let c = typeof x;
+let d = typeof 25;
+let e = typeof null;
+let f = typeof 25 + ' ';
+let g = typeof (NaN === NaN);
+let h = typeof null;
+let i = '' + 1;
+let j = typeof i;
 ```

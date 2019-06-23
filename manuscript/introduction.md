@@ -2,17 +2,29 @@
 
 If you have read most of the blog posts of zsoltnagy.eu, you can conclude that most of the articles require at least some basic knowledge about JavaScript. The main exception is the  [JavaScript Basics](http://www.zsoltnagy.eu/category/javascript-basics/) category.
 
-I wrote this book to bridge the gap between my less experienced audience and the knowledge required to understand my more advanced content on JavaScript. This book requires absolutely no JavaScript knowledge. 
+I wrote this book to bridge the gap between my less experienced audience and the knowledge required to understand my more advanced content on JavaScript. This book requires absolutely no JavaScript knowledge.
 
 To gain some leverage on learning JavaScript, it is important to see why it is worth learning the language in 2019 and beyond.
 
-- why today is the best time to get started with JavaScript, 
+- why today is the best time to get started with JavaScript,
 - what your career prospects are,
 - and why JavaScript provides you with a close to optimal learning experience in 2019.
 
+## The Mission of this Book
+
+I am on a mission to create the best JavaScript resource for beginners to learn coding in JavaScript.
+
+This mission was inspired by my video course ES6 in Practice, that was initially marketed to a wide audience: beginners, intermediates, and experts. While intermediate and expert developers really liked the resource, beginners got stuck, because pace was too fast for them, and the exercises were too demanding.
+
+The mission of this book is to make JavaScript understandable. I have no intention to replace the documentation, simply because the purpose of the documentation is to be complete. In the courses accompanying this book, my objective is to transform your coding skills.
+
+This mission will take long to accomplish, and you can also be a part of it. If you have any feedback, feel free to send me an email at [info@zsoltnagy.eu](mailto:info@zsoltnagy.eu).
+
+Let's continue with the history of JavaScript.
+
 ## JavaScript on the Client
 
-Chances are that you accessed this book via a web browser such as Google Chrome or Firefox. Websites that are displayed in the browser are primarily written in three languages: HTML, CSS, and JavaScript. 
+Chances are that you accessed this book via a web browser such as Google Chrome or Firefox. Websites that are displayed in the browser are primarily written in three languages: HTML, CSS, and JavaScript.
 
 HTML (Hyper Text Markup Language) describes the structure and content of a website. CSS (Cascading Style Sheets) works with presentation: it determines which font, colors, background images etc. are used to display the website.
 
@@ -22,19 +34,19 @@ JavaScript is a full-fledged programming language that can not only animate and 
 - description of application logic: for instance, the application logic can validate the personal data you entered,
 - visualization: for instance, JavaScript can draw a chart displaying the stock price of Google.
 
-> *Animation* in computer science is the act of moving or transforming an object on screen. During the move, the features of the object may change, which means that the animated object may be drawn in different color, different size, or in case of three dimensional animation, we might see the object from a different angle. 
+> *Animation* in computer science is the act of moving or transforming an object on screen. During the move, the features of the object may change, which means that the animated object may be drawn in different color, different size, or in case of three dimensional animation, we might see the object from a different angle.
 
 Transforming an object means that a feature of the object changes in time. We can change many features of the object, such as its color, its shape, or its orientation.
 
 JavaScript has been clearly the language to go to when it comes to client side development. Let's stop for a moment. What is client side and what is server side?
 
-> *Client-side* development focuses on writing code that runs in the browser of the end user. *Server-side* development focuses on writing code that runs on the server of the service provider. 
+> *Client-side* development focuses on writing code that runs in the browser of the end user. *Server-side* development focuses on writing code that runs on the server of the service provider.
 
 When a client retrieves the stock price of Google from a server, a server-side program queries data on the Google stock from a database. Then these data are transmitted to the client using a specified format. The client can then read the data and display a graph on the historical stock prices.
 
 Back in the 90s and early 2000s, JavaScript was a little toy language that could *animate* elements on a static website. These animations were called *dynamic behavior*.
 
-> Displaying an object on screen at a given point in time is called *rendering*. 
+> Displaying an object on screen at a given point in time is called *rendering*.
 
 Animation can also be defined by continuously rendering an object on screen, while its features may change.
 
@@ -46,9 +58,9 @@ The JavaScript community was growing, but we had another problem at hand: in ord
 
 Not for long though. In 2006, another important milestone happened. The library `jQuery` got released with the slogan *write less, do more*. Instead of writing tens of lines of code to make sure you covered all browsers, jQuery gave you single line commands to achieve the same result. You didn't have to be a serious software developer to write JavaScript code. You just had to include jQuery, and your problems were solved.
 
-Unfortunately, jQuery created another problem. We could use the slogan of Scarlet Spider, the evil clone of Spider-Man: *all the power, none of the responsibility*. Lowering the entry barriers meant that people who didn't care about software engineering, also started writing code. 
+Unfortunately, jQuery created another problem. We could use the slogan of Scarlet Spider, the evil clone of Spider-Man: *all the power, none of the responsibility*. Lowering the entry barriers meant that people who didn't care about software engineering, also started writing code.
 
-At the same time, the idea of *single page applications* and *client-side rich web-applications* became mainstream. Before AJAX and jQuery, almost everything was on server-side. The task of the server was to assemble a web page, and send it to the client. The server created HTML, CSS, and JavaScript code, and the client only loaded that one page. This changed when rendering and some parts of the application logic was moved to the client. This meant the application had to be loaded once, and multiple megabytes of JavaScript code was responsible for rendering the part of the application the client was interested in. This step was made possible by Moore's law, because the performance of the end user's computers doubled every few years. 
+At the same time, the idea of *single page applications* and *client-side rich web-applications* became mainstream. Before AJAX and jQuery, almost everything was on server-side. The task of the server was to assemble a web page, and send it to the client. The server created HTML, CSS, and JavaScript code, and the client only loaded that one page. This changed when rendering and some parts of the application logic was moved to the client. This meant the application had to be loaded once, and multiple megabytes of JavaScript code was responsible for rendering the part of the application the client was interested in. This step was made possible by Moore's law, because the performance of the end user's computers doubled every few years.
 
 > *Single-page applications* receive all the HTML, CSS, and JavaScript on page load, and the client can navigate between different views of the application without informing the server. The client communicates with the server with AJAX calls, and receives data without the need to reload the page. This way, single-page applications became faster, and as easy to use as a desktop application.
 
@@ -56,11 +68,11 @@ From the above five traits, scalability of an application means that the applica
 
 The main problem was that people calling themselves software developers, used their hacking skills to create bad quality software. People soon realized that some jQuery knowledge limits the size of the application they can develop. Beyond a certain size, they encounter maintainability issues.
 
-> *Maintainability* is the act of making a software solution easy to develop, modify, scale, test, and debug. If you write ten lines of code, you need a different approach than writing a million lines of code. 
+> *Maintainability* is the act of making a software solution easy to develop, modify, scale, test, and debug. If you write ten lines of code, you need a different approach than writing a million lines of code.
 
 The answer to the maintainability issue was the emergence of JavaScript frameworks. Frameworks made it possible to write maintainable code in a structured way, without the need to reinvent the wheel. Frameworks enforced some well known best practices from the field of software-engineering. In order to understand these best practices, the entry barriers got raised again to a healthy level.
 
-> A *framework* structures your code and runs your application. When using a framework, the framework is *in control*. This means, the framework calls your code. 
+> A *framework* structures your code and runs your application. When using a framework, the framework is *in control*. This means, the framework calls your code.
 
 > A *library* is a set of functionalities that you can call to perform a given task. A library is not a framework, because as long as you use a library, you are in control, the library does not call your code.
 
@@ -74,11 +86,11 @@ The frameworks were also great, but developers had one more problem. The framewo
 
 > ES stands for ECMAScript. *ECMA International* (ECMA = European Computer Manufacturers Association) is a standardizing organization founded in 1961. ECMA International is responsible for the standard describing languages like JavaScript and ActionScript. The standard describing the latest JavaScript language is ECMA-262.
 
-Around the time when ES6 emerged, old browsers like Internet Explorer 8 became so unpopular that there was hardly any demand to provide compatibility with them. This resulted in more compact and more uniform JavaScript code. 
+Around the time when ES6 emerged, old browsers like Internet Explorer 8 became so unpopular that there was hardly any demand to provide compatibility with them. This resulted in more compact and more uniform JavaScript code.
 
 Since ES2015, there was no turning back. Every year, some updates made it to JavaScript, and these updates also ended up in my course, [ES6 in Practice](http://www.zsoltnagy.eu/es6-in-practice).
 
-We can conclude based on the history of JavaScript that there has never been a better time to be a JavaScript developer. In many companies, you can make more money than a C++ developer or a PHP developer. Just look at stackoverflow.com jobs or payscale.com data. The challenges you deal with on a daily basis are interesting, and more importantly, you often get immediate feedback on your efforts by seeing the effects of your changes in your browser thanks to the *live reload* feature automatically reloading your updates. 
+We can conclude based on the history of JavaScript that there has never been a better time to be a JavaScript developer. In many companies, you can make more money than a C++ developer or a PHP developer. Just look at stackoverflow.com jobs or payscale.com data. The challenges you deal with on a daily basis are interesting, and more importantly, you often get immediate feedback on your efforts by seeing the effects of your changes in your browser thanks to the *live reload* feature automatically reloading your updates.
 
 A> Summary:
 A>
@@ -95,7 +107,7 @@ If these benefits were not enough for you, let's add some more sauce to the mix.
 
 JavaScript is not just a client-side language anymore. Node.js makes it possible to run JavaScript on the server. Node.js is built on the foundations of the execution engine of Google Chrome, called V8. Recall that even Michael Schumacher won his first world championship using a V8 engine. The V8 engine is fast like a Formula One car. The V8 compiler turns JavaScript to machine code, which means that on the server, we are not dealing with *interpreted* code anymore.
 
-> *Interpreted code* runs on a *virtual machine*, translating the sets of instructions written by a developer to executable commands. Interpreted languages are typically slower than *compiled* languages. Interpreted languages are also *portable*, which means that you can take the source code of a program and execute it on any system that has a virtual machine for that specific code. Languages that compile to *machine code* have the benefit of running code as close to machine code level as possible. This translates to faster execution times. Unfortunately, this machine code cannot be *ported* to different machines running different operating systems or having different hardware architecture. 
+> *Interpreted code* runs on a *virtual machine*, translating the sets of instructions written by a developer to executable commands. Interpreted languages are typically slower than *compiled* languages. Interpreted languages are also *portable*, which means that you can take the source code of a program and execute it on any system that has a virtual machine for that specific code. Languages that compile to *machine code* have the benefit of running code as close to machine code level as possible. This translates to faster execution times. Unfortunately, this machine code cannot be *ported* to different machines running different operating systems or having different hardware architecture.
 
 Node.js solved the speed problem by offering a compiler to machine code. This is not a big deal yet, because most other server-side languages can do the same thing. Why is node.js still a good choice for certain server-side tasks?
 
@@ -109,9 +121,9 @@ Think about it for a moment. When is this feature beneficial?
 
 > Node.js shines when there are a lot of independent parallel requests requiring a lot of I/O operations, but not many server-side computations.
 
-For instance, a 3D renderer algorithm comes with a lot of operations. Even though the V8 engine produces fast machine code, there are some other languages that are faster. Node.js only gets the edge over these languages once we deal with many inexpensive operations. 
+For instance, a 3D renderer algorithm comes with a lot of operations. Even though the V8 engine produces fast machine code, there are some other languages that are faster. Node.js only gets the edge over these languages once we deal with many inexpensive operations.
 
-In today's world, this use case happens to be very popular. The computers of the end users are strong enough to run a lot of logic on client side, including presentation of data by rendering charts, tables, and other components. The application server provides data through APIs (Application Programming Interface), and mostly interfaces database servers and file servers. The application server receives API requests and formats data for API responses in a way that clients can fetch and understand them using AJAX requests. 
+In today's world, this use case happens to be very popular. The computers of the end users are strong enough to run a lot of logic on client side, including presentation of data by rendering charts, tables, and other components. The application server provides data through APIs (Application Programming Interface), and mostly interfaces database servers and file servers. The application server receives API requests and formats data for API responses in a way that clients can fetch and understand them using AJAX requests.
 
 > *API (Application Programming Interface)*: describes the way how an application can be used, including a communication protocol. The description is made from the perspective of an external user. The API of a *service* running on an *application server* is described as a set of *endpoints*. Endpoints can be called using *requests*. A *request* typically contains a web address (URL - Uniform Resource Locator) and *payload* data. The *response* of an API contains information presented in a specified format such as JSON (JavaScript Object Notation) or XML (eXtensible Markup Language). The API response and the API request payload typically share the same format, and the primary format for JavaScript APIs is JSON. The user of a server API is typically a client-side JavaScript application or code running on another server.
 
@@ -121,8 +133,8 @@ A lot of problems have been solved effectively by *microservices*. You can simpl
 
 As a conclusion, once you learn client side development, you can upgrade your skills to perform server side development as well. Developers who are good at both client side and server side development are called *full stack developers*. Full stack development is a great career path upgrade for you in case you are looking for more responsibility in a smaller company. These companies typically provide fast career progress in exchange for you taking more responsibility to help out the company.
 
-A> Summary: 
-A> 
+A> Summary:
+A>
 A> - JavaScript is compiled to fast machine code, using the V8 engine of Google. This code can run on the server.
 A> - Node.js comes with non-blocking I/O, making it possible to handle many I/O operations in parallel.
 A> - In today's world, many computation heavy tasks are either performed on client side or by using a specialized microservice. Therefore, node.js is an excellent choice for implementing less resource-intensive APIs that require servicing a lot of parallel requests.
@@ -148,14 +160,14 @@ JavaScript may or may not be optimal for certain tasks. Obviously, if a task is 
 According to the [2018 survey of HackerRank](https://research.hackerrank.com/developer-skills/2018/),
 
 - JavaScript is the number 1 language employers are looking for. In total, 47.8% of employers post JavaScript positions
-- There is a big gap between employer demand and employee knowledge in JavaScript frameworks. The biggest gap is with React: 33.2% of employers are looking for React developers, while the supply is only 19%. Scarcity translates to more money, less competition, and more opportunities. 
+- There is a big gap between employer demand and employee knowledge in JavaScript frameworks. The biggest gap is with React: 33.2% of employers are looking for React developers, while the supply is only 19%. Scarcity translates to more money, less competition, and more opportunities.
 - You can be a self-taught developer, because companies place significantly more emphasis on experience (90.6%), your portfolio (72.7%) than on education. If you market it properly, experience can be gathered developing your personal projects, which will end up in your portfolio. This means, in JavaScript development, only your efforts limit you, there are no gatekeepers, universities, internships, or certification industries. In Berlin/Germany for instance, you can become a self-taught programmer on your own, and you can get hired for a higher salary than the average salary for a German citizen. In case of many cities or remote work opportunities, the same principle applies.
 - Although JavaScript only ranks fifth in languages developers prefer behind Python, C, C++, and Java, this might be offset by the bad experience coming from older people who had to deal with the immature version of JavaScript. When it comes to developer experience, an important metric is that out of all frameworks of all languages, the top four are JavaScript frameworks: Node.js, React, ExpressJs, and AngularJs. Working with these frameworks makes developers happier than anything else.
 
 The [2018 survey of StackOverflow](https://insights.stackoverflow.com/survey/2018/) paints the same picture:
 
 - JavaScript is the most popular language with a share of 69.8%. On StackOverflow, JavaScript is more popular than Python.
-- Three frameworks lead the list of most popular frameworks: Node.js, Angular, React. 
+- Three frameworks lead the list of most popular frameworks: Node.js, Angular, React.
 - Salaries of JavaScript developers are marked lower in this survey than the salary paid in many other fields. In my opinion, this statistic is misleading, because the salaries of experts are overshadowed by the salaries of entry level developers more than in case of a language requiring a lot of expertise. In an average JavaScript first interview, based on my experience, it is not uncommon to filter out 70% of the applicants. In an average C++ interview on the other hand, people who reach the first interview know a lot better what they are doing. I encourage you to do your own research on payscale.com or glassdoor.com to find specific JavaScript developer salaries of companies that require your skills.
 
 Although the audience matters, in today's world, you cannot really go wrong with JavaScript. You can also expect that JavaScript stays in an uptrend.
@@ -183,7 +195,7 @@ Learning JavaScript is easier than ever before. Years ago, a lot of frustrations
 
 Talk to anyone who wrote JavaScript code fifteen years ago, and you can conclude, you are not working with the same language anymore.
 
-If there is a problem, a passionate open source community, as well as tech giants like Google or Facebook, are likely to provide you with a reliable JavaScript solution. Since 2015, standardization also started speeding up. We are living in the greatest time of JavaScript history. And it's just going to be better. 
+If there is a problem, a passionate open source community, as well as tech giants like Google or Facebook, are likely to provide you with a reliable JavaScript solution. Since 2015, standardization also started speeding up. We are living in the greatest time of JavaScript history. And it's just going to be better.
 
 ## JavaScript learning experience according to science
 
@@ -225,7 +237,7 @@ For this reason, JavaScript is a great candidate for flow experience. Python is 
 
 Regardless of whether you want to learn JavaScript, or you want to choose or change your specialization, it is important to take a moment and appreciate the current state of JavaScript.
 
-Things were not always as bright as in these days. In the first half of the chapter, we went through the dark history of JavaScript on client side, then we transitioned to the somewhat brighter and shorter history of JavaScript on the server. 
+Things were not always as bright as in these days. In the first half of the chapter, we went through the dark history of JavaScript on client side, then we transitioned to the somewhat brighter and shorter history of JavaScript on the server.
 
 These events made it possible for JavaScript developers to experience growth way beyond what we imagined ten years ago. An avalanche of use cases await JavaScript developers, such as VR and Blockchain technologies, helping JavaScript conquer new horizons.
 

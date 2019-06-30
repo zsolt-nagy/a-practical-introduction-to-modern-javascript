@@ -1,6 +1,6 @@
 ## The typeof operator
 
-Congratulations! You now know the basic types of JavaScript. This is a perfect time to introduce an operator that returns the type of a value.
+In some cases, we may want to check the type of a value we hold in a variable. To perform this task, we will introduce the typeof operator.
 
 Let's recall the concept of an *operator* and an *operand*:
 

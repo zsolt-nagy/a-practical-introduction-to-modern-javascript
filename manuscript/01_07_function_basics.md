@@ -92,9 +92,7 @@ function addOne( coins ) {
 5
 ```
 
-The `coins` variable inside the function is valid inside the *scope* of the function. It *shadows* the variable `coins` outside the function. Therefore, adding one to the internal `coins` variable does not have any effect on the external value. To see the execution of this code in action, follow this URL:
-
-http://pythontutor.com/javascript.html#code=let%20coins%20%3D%205%3B%0Afunction%20addOne%28%20coins%20%29%20%7B%0A%20%20%20%20coins%20%3D%20coins%20%2B%201%3B%0A%20%20%20%20return%20coins%3B%0A%7D%0A%0Alet%20result%20%3D%20addOne%28%20coins%20%29%3B%0Aconsole.log%28%20result%20%29%3B%0Aconsole.log%28%20coins%20%29%3B&curInstr=7&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D
+The `coins` variable inside the function is valid inside the *scope* of the function. It *shadows* the variable `coins` outside the function. Therefore, adding one to the internal `coins` variable does not have any effect on the external value. To see the execution of this code in action, follow [this URL](http://pythontutor.com/javascript.html#code=let%20coins%20%3D%205%3B%0Afunction%20addOne%28%20coins%20%29%20%7B%0A%20%20%20%20coins%20%3D%20coins%20%2B%201%3B%0A%20%20%20%20return%20coins%3B%0A%7D%0A%0Alet%20result%20%3D%20addOne%28%20coins%20%29%3B%0Aconsole.log%28%20result%20%29%3B%0Aconsole.log%28%20coins%20%29%3B&curInstr=7&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D).
 
 We learned earlier that variables declared using `var` are function scoped. Function arguments are also function scoped:
 

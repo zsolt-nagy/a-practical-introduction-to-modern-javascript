@@ -62,6 +62,24 @@ let key = 'website';
 
 The solution is to use the bracket notation and get `author[ key ]`. The value inside the brackets is converted to a key.
 
+```
+author[ key ]
+// Prints: zsoltnagy.eu
+```
+
+We already know that the key of an object is a string. If we supply a key of different type inside the brackets, then this key is automatically converted to a string:
+
+```
+const key = 1;
+const street = {};
+
+street[ key ] = 'house';
+
+console.log( street );
+```
+
+After executing the above code, the value `{ "1": "house" }` is printed to the console.
+
 A member of an object can be another object:
 
 ```

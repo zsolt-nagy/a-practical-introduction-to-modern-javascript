@@ -39,6 +39,7 @@ let x = 1;
 After the execution of the program, the following is written on the console:
 
 ```
+----Function----
 x: 1
 functionScoped: Moon
 ```
@@ -98,5 +99,3 @@ let x = 1;
 ```
 
 **Exercise 38:** Rewrite the code of the previous exercise such that you use `var` instead of `let`, and you use immediately invoked function expressions instead of blocks.
-
- 

@@ -250,13 +250,13 @@ A frequent question is, how to write quotes inside a string if quotes represent 
 
 ```
 // Solution 1:
-console.log( '--- "Ez egy idézet" ---' );
+console.log( '--- "This is a quote" ---' );
 
 // Solution 2:
-console.log( "--- 'Ez egy idézet' ---" );
+console.log( "--- 'This is a quote' ---" );
 
 // Solution 3:
-console.log( "--- \"Ez egy idézet\" ---" );
+console.log( "--- \"This is a quote\" ---" );
 ```
 
 You can use any number of double quotes inside single quotes, and any number of single quotes inside double quotes. However, using a single quote inside a string defined using single quote would mean that we terminate the string. The same holds for using a double quote inside a string defined using double quotes.

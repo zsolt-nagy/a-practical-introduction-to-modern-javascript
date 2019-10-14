@@ -142,20 +142,19 @@ We will learn many language constructs to perform iteration. These include:
 - recursion, which is a name for a function calling itself directly or indirectly. Direct recursion means that we execute function `f`, and one of our statements inside the function is calling `f`. Indirect recursion occurs during the execution of function `f`, if we call another function `g`, which may call `f`. Example for direct recursion:
 
 ```
-function printArray( arr, startIndex ) {
-    if ( startIndex >= arr.length ) {
-        return;
+function printArray( arr ) {
+    if ( arr.length > 0 ) {
+        console.log( arr[0] );
+        printArray( arr.slice( 1 ) );
     }
-    console.log( arr[ startIndex] );
-    printArray( arr, startIndex + 1 );
 }
-
-printArray( [1, 3, 5, 1], 0 );
 ```
 
-Assuming you know that the `return` statement exits from the function, and you know how to read an `if` statement, you already know everything to know what this function is doing. We iterate based on `startIndex`, which spans each integer value between the values `0` and `arr[ startIndex - 1 ]`, including the two boundary values `0` and `arr[ startIndex - 1 ]`.
+Once you run `printArray( [1, 3, 5, 1] )`, you can see that the result is `1`, `3`, `5`, `1` printed on screen, one value in each line.
 
-Unfortunately, this solution is not only inconvenient, but it is also resource intensive. Therefore, we will learn loops to simplify iteration from the above function to a simple and understandable form such as the following:
+If you remember how an `if` statement works from above, you have learned everything else to understand the `printArray` function. We first print the element with index `0`, then we create a slice from the array. This slice keeps all elements from the array except the one printed to the console. We repeat this process until we run out of elements in the array.
+
+Unfortunately, this solution is not only inconvenient, but it is also resource intensive. Somewhere between ten and a hundred thousand elements, the program throws a *stack overflow* error, because it can't handle that many recursive function calls at once. Therefore, we will learn loops to simplify iteration from the above function to a simple and understandable form such as the following:
 
 ```
 for ( let value of arr ) {

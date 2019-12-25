@@ -88,7 +88,7 @@ function logLampColor( state ) {
     if ( state === 1 ) {
         console.log( 'Red' );
     } else if ( state === 2 ) {
-        console.log( 'Yellow' );
+        console.log( 'Amber' );
     } else if ( state === 3 ) {
         console.log( 'Green' );
     } else {
@@ -952,7 +952,7 @@ function logLampColor( state ) {
       console.log( 'Red' );
       break;
     case 2:
-      console.log( 'Yellow' );
+      console.log( 'Amber' );
       break;
     case 3:
       console.log( 'Green' );
@@ -989,7 +989,7 @@ function getLampColor( state ) {
         case 1:
             return 'Red';
         case 2:
-            return 'Yellow';
+            return 'Amber';
         case 3:
             return 'Green';
     }
@@ -1015,7 +1015,7 @@ We can place another ternary expression in place of `'Green'` to add more lamp s
 ```
 function getLampColor( state ) {
     return state == 1 ? 'Red' :
-           state == 2 ? 'Yellow' :
+           state == 2 ? 'Amber' :
            state == 3 ? 'Green' :
            'Error';
 }
@@ -1047,4 +1047,25 @@ if ( a > 0 ) {
 } else {
     console.log( 'Zero' );
 }
+```
+
+**Exercise 48.** Convert the following code to an equivalent version without using `switch`. Hint: you can use `if-else` statements, the ternary operator, or even function calls.
+
+```
+let state = 2;
+
+switch( state ) {
+    case 1:
+        console.log( 'One' );
+        break;
+    case 2:
+    case 3:
+        console.log( 'Two or Three' );
+    case true:
+        console.log( 'True' );
+        break;
+    default:
+        console.log( 'Default' );
+}
+console.log( 'Done' );
 ```

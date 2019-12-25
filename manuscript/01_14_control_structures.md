@@ -6,7 +6,7 @@ A> When writing programs, we use three control structures: *sequencing* instruct
 
 First of all, every program has an entry point and an exit:
 
-![`Flowchart start and end states`](images/flowchart.png)
+![`Flowchart start and end states`](images/Flowchart.png)
 
 This diagram is called a *flowchart* describing the control flow of a program.
 

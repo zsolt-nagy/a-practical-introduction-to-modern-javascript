@@ -2,7 +2,7 @@
 
 Now that we know how selection works, let's move on to learn about iteration.
 
-## Recursive function calls
+### Recursive function calls
 
 Let's start with an introductory example. First, we'll create a simple array:
 
@@ -75,9 +75,9 @@ Take a short melody, repeat it a hundred times. You get a song. Simple, isn't it
 
 Although it is possible to use functions to implement iteration, this solution is rarely recommended. In the future, we will learn how to write iteration using loops. This form becomes a lot more compact than the function form, let alone the performance benefits.
 
-A> Iteration using a function calling itself is called *recursion*. The state of the iteration is described by *accumulator variables* in the argument list of the function.
+A> Iteration using a function calling itself is called *recursion*. 
 
-We have seen two examples for accumulator variables: the partial sum and `i`. Although we did not express these variables  in the solution, we could easily do it:
+To introduce an important concept that helps you understand loops, let's reorganize the solution a bit:
 
 ```
 function sum( array ) {
@@ -91,7 +91,7 @@ function sumHelper( array, index, previousSum ) {
 }
 ```
 
-By using default function argument values, we can make this solution even more compact:
+By using *default function argument values*, we can make this solution even more compact:
 
 ```
 function sum( array, index = 0, previousSum = 0 ) {
@@ -99,6 +99,8 @@ function sum( array, index = 0, previousSum = 0 ) {
     return sum( array, index + 1, previousSum + array[index] );
 }
 ```
+
+When the value of `index` or `previousSum` is not given, the default value is used. So `sum( [1, 2] )` is the same as `sum( [1, 2], 0, 0)`.
 
 Let's use arrow functions and the ternary operator to simplify the function even more:
 
@@ -109,11 +111,18 @@ const sum = ( array, index = 0, previousSum = 0 ) =>
     sum( array, index + 1, previousSum + array[index] );
 ```
 
-While loops are often more performant in JavaScript than recursion, the expressive power of well written recursion if surprisingly good. You take an array, an index starting with zero, and the previous sum starting with zero. Once you reach the end of the array, you return the accumulated sum. Otherwise, you add one to the index, accumulate the current value of the array in the sum, and continue the iteration. 
+Although loops are often more performant in JavaScript than recursion, the expressive power of well written recursion if surprisingly good. We can just read the code line by line:
 
-Note for advanced readers: tail call optimization is still not implemented properly in all JavaScript environments, and I have doubts if it will ever be implemented.
+* Line 1: You take an array, an index starting with zero, and the previous sum starting with zero. 
+* Line 2: Once you reach the end of the array...
+* Line 3: ...you return the accumulated sum. 
+* Line 4: Otherwise, you add one to the index, accumulate the current value of the array in the sum, and continue the iteration. 
 
-### Exercises: Recursion
+An intermediate state of the iteration is described by the `index` and `previousSum` variables. These variables are called accumulator variables.
+
+A> The state of the iteration can be described described using *accumulator variables* in the argument list of the function.
+
+#### Exercises: Recursion
 
 **Exercise 49.** Adott egy egész számokat tartalmazó tömb. Írd ki `console.log` segítségével egymás alá külön sorba a tömb elemeit. Használj rekurziót.
 
@@ -128,19 +137,19 @@ fib( 5 ) = fib( 3 ) + fib( 4 ) = 5
 ...
 ```
 
-### while loop
+### While loop
 
-In order to execute the same expressions multiple times, we create *loops*. A loop is like a cheap song. You know, Berlin is famous for the city of DJs. Sometimes I believe every third man claims he is a DJ. I happened to be a neighbor of one, fortunately, property management terminated his contract. This lunatic guy "worked" on one melody for half a year. And he repeated it over and over and over and over and over and over again.
+It is generally harder to write iteration using functions than using built-in loops. Therefore, we will introduce the while loop:
 
-Think of a loop like the song "Around the world, around the wo-orld. Around the world, around the wo-orld...". You get the idea. Take a melody, repeat it a hundred times, and you get the song. In programming terms, take some code, repeat it `x` amount of times, and you get code executed a hundred times.
+```
+while ( condition ) {
+    statements;
+}
+```
+
+As long as `condition` is `true`, statements are executed. These statements change the internal state of the application such that sooner or later the `condition` becomes `false`. This is when we can exit the loop.
 
 Let's create a function that sums the values of an array:
-
-```
-let numbers = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
-```
-
-The first four numbers are not by accident. They were the level selector cheat code of Sonic 2. If you have slight aspergers syndrome, you tend to remember some weird numbers.
 
 ```
 let numbers = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
@@ -174,6 +183,65 @@ This is an important concept, so let's spend a bit more time on the execution. I
 Start moving the slider from left to right to see how the value of the variables change.
 
 The below content may or may not work for you. If you cannot see the example below, please click [this link](http://pythontutor.com/javascript.html#code=let%20numbers%20%3D%20%5B19,%2065,%209,%2017,%204,%201,%202,%206,%201,%209,%209,%202,%201%5D%3B%0A%0Afunction%20sumArray%28%20values%20%29%20%7B%0A%20%20%20%20let%20sum%20%3D%200%3B%0A%20%20%20%20let%20i%20%3D%200%3B%0A%20%20%20%20while%20%28%20i%20%3C%20values.length%20%29%20%7B%0A%20%20%20%20%20%20%20%20sum%20%2B%3D%20values%5Bi%5D%3B%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%3B%0A%20%20%20%20%7D%0A%20%20%20%20console.log%28%20'The%20loop%20was%20executed%20'%20%2B%20i%20%2B%20'%20times'%20%29%3B%0A%20%20%20%20return%20sum%3B%0A%7D%0A%0AsumArray%28%20numbers%20%29%3B&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D) instead.
+
+#### Exercises: While loop
+
+**Exercise 51.** Let's recall the `map` structure from a previous exercise:
+
+```
+let arr = [1, 5, 3, 1];
+
+let map = {};
+
+map[ arr[0] ] = true;
+map[ arr[1] ] = true;
+map[ arr[2] ] = true;
+map[ arr[3] ] = true;
+
+console.table( map );
+```
+
+Write a function that builds a similar map structure from an arbitrary array. Use a while loop!
+
+**Exercise 52.** Recall the base 16 to base 10 / base 2 converter:
+
+```
+/**
+ *  Prints hexadecimalValue in base 2 and base 10.
+ *  
+ *  @param  string    hexadecimal number in correct format
+ *  @return undefined
+ */
+function convert( hexadecimalValue ) {
+    let baseTenValue = Number.parseInt( hexadecimalValue, 16 );
+    console.log(
+        hexadecimalValue + ' in base 10:',
+        baseTenValue,
+        '\n' + hexadecimalValue + ' in base  2:',
+        baseTenValue.toString( 2 )
+    );
+}
+
+convert( 'ACE' )
+// --> ACE in base 10: 2766
+//     ACE in base  2: 101011001110
+```
+
+Rewrite the numeric base converter function such that you can enter an arbitrary base as a second argument of the convert function. Make sure the program only accepts integers greater than or equal to 2. Example:
+
+```
+convertAll( 'ACE', [12, 10, 8, 4, 3, 2] )
+// --> ACE in base 12: 1726
+       ACE in base 10: 2766
+       ACE in base 8: 5316
+       ACE in base 4: 223032
+       ACE in base 3: 10210110
+       ACE in base 2: 101011001110
+```
+
+
+
+### The do-while loop
 
 We have a few more loops to go. The `do-while` loop executes the loop body at least once, and checks the condition before the end.
 
@@ -213,6 +281,19 @@ do {
 ```
 
 This is where the do-while loop makes sense, because we can be sure we need to enter data at least once. In the example summing array members, using the do-while loop is technically possible, but it does not make sense, because the simple while loop is easier.
+
+#### Exercises: the do-while loop
+
+**Exercise 53.** You can create a random number between 1 and 50 using the following code:
+
+`Math.trunc( Math.random() * 50 ) + 1`
+
+Create a function that generates a random number, and then asks the user for input between `1` and `50`. Repeat asking the user for input until the user doesn't guess a previously generated random number correctly. 
+
+(a) Use a do-while loop
+(b) Use recursion
+
+### The for loop
 
 You will now learn another loop that is perfect for iteration: the *for* loop. This loop combines several lines of code into one. The execution of the for loop is identical to the while loop:
 
@@ -313,12 +394,23 @@ for ( let i = 0; i < values.length; ++i ) {
 }
 ```
 
+#### Exercises: for loop 
+
+**Exercises 54 and 55.** Recall the two exercises in the `while` loop secion. Rewrite your solutions using the for loop.
+
+### The for..in and for..of loops
+
 Our next simplification is the `for..in` loop. Why bother iterating an `i` variable if a loop can take care of it for us?
 
 ```
+let values = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
+let sum = 0;
+
 for ( let i in values ) {
     sum += values[i];
 }
+
+console.log( sum );
 ```
 
 The `for..in` loop enumerates all the available indices of the `values` array from `0` to `12` in ascending order.
@@ -326,9 +418,14 @@ The `for..in` loop enumerates all the available indices of the `values` array fr
 I have another simplification for you. What if I said, "why bother using a variable for iteration at all, if we could enumerate the values of the array?". In ES6, there is a loop called the `for...of` loop, which does exactly that.
 
 ```
+let values = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
+let sum = 0;
+
 for ( let value of values ) {
     sum += value;
 }
+
+console.log( sum );
 ```
 
 That's all. Go back to the editor and substitute the `for..in` and the `for..of` constructs in place of your for loop. It works exactly the same way.
@@ -340,7 +437,7 @@ We can use `break` or `continue` inside the loops:
 - `break` exits the closest loop it is in, and continues with the next command,
 - `continue` skips out from the loop body, and jumps back to the condition of the loop.
 
-Example: sum every second element of the `numbers` array:
+**Example**: sum every second element of the `numbers` array:
 
 ```
 let numbers = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
@@ -446,4 +543,16 @@ function sumArray( values ) {
 }
 
 sumArray( numbers );
+```
+
+#### Exercises: for..in and for..of
+
+**Exercise 56:** Create a function that expects an array of numbers and returns the largest number in the array. Example:
+
+```
+max([19, 65, 9, 17, -99])
+// --> 65
+
+max([])
+// --> null
 ```

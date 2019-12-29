@@ -1,5 +1,133 @@
 ## Iteration: Loops and Recursion
 
+Now that we know how selection works, let's move on to learn about iteration.
+
+## Recursive function calls
+
+Let's start with an introductory example. First, we'll create a simple array:
+
+```
+let numbers = [19, 65, 9, 17];
+```
+
+If these numbers look familiar to you, yes, they form the level select cheat code of the Sega classic, Sonic 2.
+
+**Exercise**: Using what you already know, calculate the sum of the elements of the `numbers` array. The `numbers` array can contain arbitrary elements.
+
+**Solution**: We have learned how to write if-else statements, functions, operators. The problem is, we have not learned how to sum more than two numbers. Therefore, we need some inspiration to solve this riddle.
+
+We know that the sum of the elements of an empty list is 0.
+
+We also know that the sum of elements of a list of lenth 1 equals the only element of the list.
+
+Suppose we can somehow sum the first `i` elements of the `numbers` list and store it in the variable `S`. Using the value `S`, we can sum the first `i + 1` elements of the list: `S + numbers[i]`.
+
+Ha valahogy a lista első `i` elemét összegezni tudjuk, és ez az összeg `S`, akkor a lista első `i+1` elemének az összege `S + numbers[i]`.
+
+In tabular form:
+
+```
+index  numbers[index]   previous sum  new sum
+    0       19          0             0 + 19 =  19
+    1       65          19            19 + 65 =  84
+    2        9          84            84 +  9 =  93
+    3       17          93            93 + 17 = 110
+```
+
+We have created our first *loop*. Each *iteration* of the loop is characterised by an index ranging between 0 and `numbers.length - 1`. During each iteration, two things change:
+
+- the index,
+- the sum.
+
+All we need to do is note the value of the index and the sum in each iteration. Perform all the iterations by looping through the whole array.
+
+We need to know when to end the iteration. We finish iterating once the value of `index` reaches `numbers.length`.
+
+Let's turn this idea into code. We will use a function to perform an iteration of the loop.
+
+For the sake of simplicity, we will do the exact opposite of what our original idea was. In the original idea, we took the sum of the first `i` elements and added the `i + 1`th element to the sum. Here, we take the first element, and add it to the sum of the rest of the list. This small difference determines if the sum is calculated from left to right or right to left. As a benefit, our function will be more compact.
+
+```
+function sum( array ) {
+    return array.length === 0 ? 0 :
+           array[0] + sum( array.slice( 1 ) );   
+}
+```
+
+If the list is empty, zero is returned as the sum.
+
+If the list is not empty, we take its first element, and add it to the sum of the remaining elements. Example:
+
+Step 1. `sum( [ 19, 65, 9, 17 ] )`. The first element is `19`.
+Step 2. `19 + sum( [ 65, 9, 17 ] )`
+Step 3. `19 + 65 + sum( [ 9, 17 ] )`
+Step 4. `19 + 65 + 9 + sum( [ 17 ] )`
+Step 5. `19 + 65 + 9 + 17 + sum( [] )`
+Step 6. `19 + 65 + 9 + 17 + 0`
+
+After the last step, the sum becomes `110`.
+
+We have successfully created *iteration* using functions. Iteration is a piece of code that we run over and over again. Although we are using functions now, at a later stage, we will use loops to implement iteration.
+
+A loop is like a cheap song. This reminds me of Berlin, where every third person claims they are a DJ. Once I had a "DJ" neighbour too. Fortunately, the property management didn't tolerate his activities. I can still recall as he was "working" on the same melody for half a year. Over and over again... until someone called the police. 
+
+Take a short melody, repeat it a hundred times. You get a song. Simple, isn't it? Programming is similar: take a code segment and run it many times.
+
+Although it is possible to use functions to implement iteration, this solution is rarely recommended. In the future, we will learn how to write iteration using loops. This form becomes a lot more compact than the function form, let alone the performance benefits.
+
+A> Iteration using a function calling itself is called *recursion*. The state of the iteration is described by *accumulator variables* in the argument list of the function.
+
+We have seen two examples for accumulator variables: the partial sum and `i`. Although we did not express these variables  in the solution, we could easily do it:
+
+```
+function sum( array ) {
+    return sumHelper( array, 0, 0 ); 
+}
+
+function sumHelper( array, index, previousSum ) {
+    if ( index >= array.length ) return previousSum;
+    var newSum = previousSum + array[index];
+    sumHelper( array, index + 1, newSum );
+}
+```
+
+By using default function argument values, we can make this solution even more compact:
+
+```
+function sum( array, index = 0, previousSum = 0 ) {
+    if ( index >= array.length ) return previousSum;
+    return sum( array, index + 1, previousSum + array[index] );
+}
+```
+
+Let's use arrow functions and the ternary operator to simplify the function even more:
+
+```
+const sum = ( array, index = 0, previousSum = 0 ) => 
+    index >= array.length ? 
+    previousSum :
+    sum( array, index + 1, previousSum + array[index] );
+```
+
+While loops are often more performant in JavaScript than recursion, the expressive power of well written recursion if surprisingly good. You take an array, an index starting with zero, and the previous sum starting with zero. Once you reach the end of the array, you return the accumulated sum. Otherwise, you add one to the index, accumulate the current value of the array in the sum, and continue the iteration. 
+
+Note for advanced readers: tail call optimization is still not implemented properly in all JavaScript environments, and I have doubts if it will ever be implemented.
+
+### Exercises: Recursion
+
+**Exercise 49.** Adott egy egész számokat tartalmazó tömb. Írd ki `console.log` segítségével egymás alá külön sorba a tömb elemeit. Használj rekurziót.
+
+**Exercise 50.** Írj egy függvényt, amely kiszámol egy sorozatot. Ennek a sorozatnak az első két eleme 1 és 1. A harmadik elemtől a sorozat következő eleme az előző két elem összege. Hívjuk ezt a sorozatot *fibonacci* sorozatnak:
+
+```
+fib( 1 ) = 1
+fib( 2 ) = 1
+fib( 3 ) = fib( 1 ) + fib( 2 ) = 2
+fib( 4 ) = fib( 2 ) + fib( 3 ) = 3
+fib( 5 ) = fib( 3 ) + fib( 4 ) = 5
+...
+```
+
 ### while loop
 
 In order to execute the same expressions multiple times, we create *loops*. A loop is like a cheap song. You know, Berlin is famous for the city of DJs. Sometimes I believe every third man claims he is a DJ. I happened to be a neighbor of one, fortunately, property management terminated his contract. This lunatic guy "worked" on one melody for half a year. And he repeated it over and over and over and over and over and over again.

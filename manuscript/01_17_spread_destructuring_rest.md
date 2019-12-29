@@ -4,6 +4,8 @@ The Spread operator, Destructuring, and Rest parameters are three related featur
 
 ### Spread Operator
 
+We will introduce the spread operator via examples. The difference between examples and exercises is that you haven't read everything you need to solve these examples in the easiest possible way. While you can try solving these examples, please always read the reference solutions.
+
 **Example 1**: Suppose that you have two baskets containing fruits:
 
 ```
@@ -96,6 +98,21 @@ const MergedBasket = [ ...Basket1, ...Basket2 ];
 ```
 
 No `for...of` loops are needed. The spread operator solves everything.
+
+#### Exercises: Spread operator
+
+**Exercise 57.** Fill in the blanks such that the result of executing this code becomes `1 7 3`. Do not use any numeric digits in your solution.
+
+```
+let A = [1, 2, 3];
+let B = _____;
+B[0] += 1;
+console.log(
+    A[0],
+    B[0] + B[1] + B[2],
+    B.length  
+);
+```
 
 ### Destructuring Arrays
 
@@ -252,6 +269,44 @@ If all the elements of an array are consumed before reaching a rest parameter, t
 []
 ```
 
+#### Exercises: Destructuring
+
+**Exercise 58.** Swap the following two variables using one assignment:
+
+```
+let swap = 'swap';
+let me = 'me';
+```
+
+**Exercise 59.** Create one destructuring assignment inside the for loop that helps you calculate the nth Fibonacci number. Reminder:
+
+- `fib( 1 ) = 1`
+- `fib( 2 ) = 1`
+- `fib( n ) = fib( n-1 ) + fib( n-2 )`;
+
+```
+function fib( n ) {
+    let fibCurrent = 1;
+    let fibLast = 1;  
+
+    if ( n <= 2 ) return n;
+
+    for ( let fibIndex = 1; fibIndex < n; ++fibIndex ) {
+        // Ide illessz be egy destrukturáló kifejezést
+    }
+
+    return fibCurrent;
+}
+```
+
+**Exercise 60.** What variable values does the following expression create?
+
+```
+let node = { left : { left: 3, right: 4 }, right: 5 };
+
+let { loft, right : val } = node;
+```
+
 ### Function Rest Parameter and Array Destructuring
 
 In the upcoming example, we use the `...` operator as *rest parameters*. Rest parameters behave in a slightly more constrained way than the spread operator spreading the values of an array into comma separated values. This difference can be illustrated by the following two functions:
@@ -304,3 +359,6 @@ const maxMinDifference = function( ...args ) {
 56
 ```
 
+### Exercises: Function Rest Parameter and Array Destructuring
+
+**Exercise 61.**: Create a function that prints all its arguments one by one such that each argument is printed on a different line. Whenever the argument list is empty, the value `undefined` is printed. Use recursion and rest parameters!

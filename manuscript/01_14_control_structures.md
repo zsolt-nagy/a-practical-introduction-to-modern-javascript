@@ -59,7 +59,7 @@ Another example is the creation of arrays. We already know how to create an arra
 
 Let's explore these two control structures one by one.
 
-## Selection
+### Selection
 
 When performing **selection**, we branch off based on a condition. If the condition is true, we visit one branch. If the condition is false, we visit another branch. We select our branch based on whether our condition. Let's see an example:
 

@@ -684,7 +684,7 @@ false
 console.log( 2*2+4 );
 
 // B. Ternary operator
-console.log( 3 % 2 ? 'egy' : 'nulla' );
+console.log( 3 % 2 ? 'one' : 'zero' );
 
 // C. Not a Number
 console.log( (0/0) == NaN );
@@ -706,7 +706,7 @@ Number( 3 ).toString( 2 );
 
 **Exercise 17:** Without evaluating the expression, estimate the difference of the base 10 value `2 ** 24` and the hexadecimal value `FFFFFF`. Create a JavaScript expression that calculates this difference.
 
-**Exercise 18:** Which data type would you use to model the following data? In case you chose a `number` type, choose whether you would use an integer or a floating point.
+**Exercise 18:** Which datatype would you use to model the following data? In case you chose a `number` type, choose whether you would use an integer or a floating point.
 
 A. your name
 B. your bank account number (assuming it only contains digits)

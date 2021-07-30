@@ -2,11 +2,11 @@
 
 This section will introduce the Object type. We will only learn the basics here.
 
-An object is data structure with String or Symbol keys and arbitrary values. Imagine it like a machine that accepts a key, and gives you a value. Some people call this data structure *associative array*, others call it *hashmap*. These names may sound fancy, but essentially we mean the same damn thing.
+An object is a data structure with String or Symbol keys and arbitrary values. Imagine it like a machine that accepts a key, and gives you a value. Some people call this data structure *associative array*, others call it *hashmap*. These names may sound fancy, but essentially we mean the same thing.
 
-*Side note: we will only deal with `String` keys for now. `Symbol` keys are also allowed for strings. This is an advanced topic, you will learn it later.*
+*Side note: we will only deal with `String` keys for now. `Symbol` keys are also allowed for strings. `Symbol` keys are also allowed for strings, but at this stage, it is not beneficial to learn about symbols.*
 
-An associative array is like human memory. In order to get access to a memory, we need an association, which is a handle or a key. This key unlocks the memory by providing access to it. The address of associative memory is therefore content. In JavaScript, we will use strings to describe this content.
+An associative array is like human memory. In order to get access to memory, we need an association, which is a handle or a key. This key unlocks the memory by providing access to it. The address of associative memory is therefore content. In JavaScript, we will use strings to describe this content.
 
 ```
 let author = {
@@ -22,7 +22,7 @@ Run the above code in the console of Google Chrome developer tools. You can see 
 
 Similarly, `console.log( author )` also logs the `author` object, but in this log, we need more clicks to read the keys and values.
 
-The members of the `author` object can be accessed using a dot. For instance, `author.name` gives you read and write access to the `name` property of the `author` object. For instance, we can read the `author.name` value and log it using `console.log( author.name )`. To change the value of the name property, we have to wrtie `author.name = 'Zsolt'`.
+The members of the `author` object can be accessed using a dot. For instance, `author.name` gives you read and write access to the `name` property of the `author` object. For instance, we can read the `author.name` value and log it using `console.log( author.name )`. To change the value of the name property, we have to write `author.name = 'Zsolt'`.
 
 ```
 author.name = "Zsolt";
@@ -67,7 +67,7 @@ author[ key ]
 // Prints: zsoltnagy.eu
 ```
 
-We already know that the key of an object is a string. If we supply a key of different type inside the brackets, then this key is automatically converted to a string:
+We already know that the key of an object is a string. If we supply a key of a different type inside the brackets, then this key is automatically converted to a string:
 
 ```
 const key = 1;
@@ -91,7 +91,7 @@ let garage = {
 }
 ```
 
-Here we can see that the garage has an integer size and an object propery called `parking`.
+Here we can see that the garage has an integer size and an object property called `parking`.
 
 We typically build objects using braces by enumerating key-value pairs inside an opening brace and a closing brace. Once an object is built, we can add more properties to it:
 
@@ -108,9 +108,7 @@ We saw that we can refer to members of an object in two ways:
 
 The two notations are equivalent.
 
-It is important to note that in the bracket notation, you need a value that can be converted to a string and does not throw an error. Therefore, if you try to retrieve `garage[ nonExistingKey ]`, you get an error.
-
-We will learn a lot more about objects later.
+It is important to note that in the bracket notation, you need a value that can be converted to a string and does not throw an error. Therefore, if you try to retrieve `garage[ nonExistingKey ]`, you get an error in case the variable `nonExistingKeys` is not declared.
 
 
 ### Exercises: objects
